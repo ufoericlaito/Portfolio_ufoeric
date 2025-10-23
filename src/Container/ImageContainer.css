@@ -1,0 +1,158 @@
+/* ========== 图片容器样式 ========== */
+.ImageTitleContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #2c3e50;
+  line-height: 1.6;
+  width: 100%;
+  max-width: 800px;
+}
+
+.ImageTitle {
+  display: flex;
+  align-items: center;
+  margin: 0 0 1rem 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #667eea;
+  line-height: 1.4;
+  font-size: 1.5rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.ImageTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.ImageContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 1rem 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  width: 100%;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.ImageContainer:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.Image {
+  margin: 0;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.Image:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* ========== 媒体项容器样式 ========== */
+.MediaItem {
+  margin: 0;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.MediaItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* 视频样式 */
+.MediaItem video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* 图片样式（继承 Image 类） */
+.MediaItem img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ========== 视频容器 - 单独一行 ========== */
+.VideoContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.VideoContainer:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 视频容器内的媒体项 */
+.VideoContainer .MediaItem {
+  width: 100%;
+}
+
+/* ========== 图片容器变体 - 三列布局 ========== */
+.ImageContainer.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ========== 响应式设计 ========== */
+@media (max-width: 768px) {
+  .ImageContainer {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .ImageContainer.grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .ImageTitle {
+    font-size: 1.3rem;
+  }
+
+  .Image:hover {
+    transform: scale(1.02);
+  }
+
+  .MediaItem:hover {
+    transform: translateY(-2px);
+  }
+
+  .VideoContainer {
+    padding: 1rem;
+  }
+}
