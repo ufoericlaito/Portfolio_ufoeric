@@ -8,6 +8,7 @@
   line-height: 1.6;
   width: 100%;
   max-width: 800px;
+  perspective: 1000px;
 }
 
 .Title {
@@ -43,11 +44,13 @@
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 .TextContainer:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
+  transform: translateY(-2px) rotateX(-1deg) rotateY(1deg);
 }
 
 .Text {

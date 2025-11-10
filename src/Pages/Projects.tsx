@@ -2,8 +2,7 @@
  * Projects Page Component
  * Displays portfolio of technical art projects with media galleries
  */
-import { useRef, useEffect, useState } from 'react';
-import ImageZoom from '../Container/ImageZoom';
+import { useRef, useEffect, useState, useCallback } from 'react';
 
 // Toonshader 项目
 import toonshader_img1 from '../assets/Projects/Toonshader/lookdev演示 图片1.png';
@@ -153,9 +152,29 @@ function Projects() {
   };
 
   // Close zoom view
-  const handleCloseZoom = () => {
+  const handleCloseZoom = useCallback(() => {
     setZoomImage(null);
-  };
+  }, []);
+
+  // Close on Escape key
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      handleCloseZoom();
+    }
+  }, [handleCloseZoom]);
+
+  useEffect(() => {
+    if (zoomImage) {
+      document.addEventListener('keydown', handleKeyDown);
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [zoomImage, handleKeyDown]);
 
   return (
     <div className="card">
@@ -307,14 +326,17 @@ function Projects() {
 
       </div>
 
-      {/* Image Zoom Modal */}
+      {/* Image Zoom Modal - Inline Implementation */}
       {zoomImage && (
-        <ImageZoom
-          src={zoomImage.src}
-          alt={zoomImage.alt}
-          isOpen={true}
-          onClose={handleCloseZoom}
-        />
+        <div className="image-zoom-overlay" onClick={handleCloseZoom}>
+          <div className="image-zoom-container" onClick={(e) => e.stopPropagation()}>
+            <button className="image-zoom-close" onClick={handleCloseZoom} title="Close (Esc)">
+              ✕
+            </button>
+            <img src={zoomImage.src} alt={zoomImage.alt} className="image-zoom-content" />
+            <div className="image-zoom-caption">{zoomImage.alt}</div>
+          </div>
+        </div>
       )}
     </div>
   );

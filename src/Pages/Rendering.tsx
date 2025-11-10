@@ -3,12 +3,10 @@
  * Showcases rendering techniques and visual demonstrations
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
-// Import Container CSS for consistent styling
+// Import Container CSS for consistent styling (includes ImageZoom styles)
 import '../Container/ImageContainer.css';
-// Import ImageZoom component for image preview
-import ImageZoom from '../Container/ImageZoom';
 
 // Root level videos
 import diabloImmortalVideo from '../assets/Rendering/Diablo Immortal.mp4';
@@ -145,9 +143,29 @@ function Rendering() {
   };
 
   // Close zoom view
-  const handleCloseZoom = () => {
+  const handleCloseZoom = useCallback(() => {
     setZoomImage(null);
-  };
+  }, []);
+
+  // Close on Escape key
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      handleCloseZoom();
+    }
+  }, [handleCloseZoom]);
+
+  useEffect(() => {
+    if (zoomImage) {
+      document.addEventListener('keydown', handleKeyDown);
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [zoomImage, handleKeyDown]);
 
   return (
     <div className="card">
@@ -468,14 +486,17 @@ function Rendering() {
         </section>
       </div>
 
-      {/* Image Zoom Modal */}
+      {/* Image Zoom Modal - Inline Implementation */}
       {zoomImage && (
-        <ImageZoom
-          src={zoomImage.src}
-          alt={zoomImage.alt}
-          isOpen={true}
-          onClose={handleCloseZoom}
-        />
+        <div className="image-zoom-overlay" onClick={handleCloseZoom}>
+          <div className="image-zoom-container" onClick={(e) => e.stopPropagation()}>
+            <button className="image-zoom-close" onClick={handleCloseZoom} title="Close (Esc)">
+              ✕
+            </button>
+            <img src={zoomImage.src} alt={zoomImage.alt} className="image-zoom-content" />
+            <div className="image-zoom-caption">{zoomImage.alt}</div>
+          </div>
+        </div>
       )}
     </div>
   );
