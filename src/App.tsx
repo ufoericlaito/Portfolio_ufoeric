@@ -40,7 +40,11 @@ function App() {
             <img src={Logo} alt="UFOERIC Logo" className="logo" />
             <Nav className="logo-links">
               <Nav.Item>
-                <Nav.Link as={Link} to="/">UFOERIC</Nav.Link>
+                <Nav.Link as={Link} to="/">
+                  <div className="glitch-text-inline small">
+                    <span className="glitch-text" data-text="UFOERIC">UFOERIC</span>
+                  </div>
+                </Nav.Link>
               </Nav.Item>
             </Nav>
           </div>
@@ -121,7 +125,7 @@ function App() {
 
       {/* Footer */}
       <footer className="footer">
-        <p>&copy; 2025 UFOERIC. All rights reserved.</p>
+        <p>&copy; 2025 <span className="neon-flicker">UFOERIC</span>. All rights reserved.</p>
       </footer>
     </>
   );
