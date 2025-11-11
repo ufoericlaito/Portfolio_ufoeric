@@ -3,21 +3,34 @@
   position: fixed;
   left: 10px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(0.5deg);
   width: 60px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 0.3rem;
-  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+
+  /* 霓虹灯双线边框效果 */
+  border: 4px double var(--neon-blue, #667eea);
+
+  /* 偏移阴影效果 */
+  box-shadow: -8px 8px 0 var(--neon-purple, #764ba2);
+
   z-index: 1000;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(102, 126, 234, 0.2);
+
+  /* 平滑过渡动画 */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.3s ease;
 }
 
 .music-player:hover {
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
-  border-color: rgba(102, 126, 234, 0.3);
+  /* 悬停时反向倾斜 */
+  transform: translateY(-50%) rotate(-0.5deg);
+
+  /* 悬停时阴影变化 */
+  box-shadow: -12px 12px 0 var(--neon-green, #00f5d4);
+
+  /* 悬停时边框颜色变化 */
+  border-color: var(--neon-pink, #ff006e);
 }
 
 .music-player.collapsed {
@@ -41,7 +54,10 @@
 /* 缩小状态的播放按钮 */
 .collapsed-play-btn {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: none;
+
+  /* 霓虹灯双线边框效果 */
+  border: 3px double var(--neon-pink, #ff006e);
+
   color: white;
   width: 40px;
   height: 40px;
@@ -51,13 +67,26 @@
   align-items: center;
   justify-content: center;
   font-size: 0.9rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+
+  /* 轻微倾斜 */
+  transform: rotate(0.5deg);
+
+  /* 偏移阴影效果 */
+  box-shadow: -6px 6px 0 var(--neon-green, #00f5d4);
+
+  /* 平滑过渡动画 */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .collapsed-play-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.6);
+  /* 悬停时反向倾斜并放大 */
+  transform: rotate(-0.5deg) scale(1.1);
+
+  /* 悬停时阴影变化 */
+  box-shadow: -8px 8px 0 var(--neon-blue, #667eea);
+
+  /* 悬停时边框颜色变化 */
+  border-color: var(--neon-green, #00f5d4);
 }
 
 .collapsed-play-btn:active {
@@ -67,7 +96,10 @@
 /* 缩小状态的展开按钮 */
 .collapsed-expand-btn {
   background: rgba(102, 126, 234, 0.3);
-  border: none;
+
+  /* 霓虹灯双线边框效果 */
+  border: 2px double var(--neon-blue, #667eea);
+
   color: #667eea;
   width: 30px;
   height: 30px;
@@ -77,12 +109,28 @@
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
-  transition: all 0.3s ease;
+
+  /* 轻微倾斜 */
+  transform: rotate(-0.3deg);
+
+  /* 偏移阴影效果 */
+  box-shadow: -4px 4px 0 var(--neon-purple, #764ba2);
+
+  /* 平滑过渡动画 */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.3s ease;
 }
 
 .collapsed-expand-btn:hover {
   background: rgba(102, 126, 234, 0.5);
-  transform: scale(1.1);
+
+  /* 悬停时反向倾斜并放大 */
+  transform: rotate(0.3deg) scale(1.1);
+
+  /* 悬停时阴影变化 */
+  box-shadow: -6px 6px 0 var(--neon-pink, #ff006e);
+
+  /* 悬停时边框颜色变化 */
+  border-color: var(--neon-green, #00f5d4);
 }
 
 .collapsed-expand-btn:active {

@@ -168,47 +168,48 @@ function Rendering() {
   }, [zoomImage, handleKeyDown]);
 
   return (
-    <div className="card">
-      <h2 className="page-title">Rendering Showcase</h2>
-
-      <div className="rendering-container">
+    <div className="rendering-page">
+      <div className="card">
+        <h2 className="page-title">Rendering Showcase</h2>
         <p className="rendering-intro">
           Advanced rendering techniques including real-time rendering, shader development,
           and visual optimization for games and interactive applications.
         </p>
+      </div>
 
-        {/* Root Level Videos */}
-        <section className="rendering-section">
-          <div className="ImageTitleContainer">
-            <h3 className="ImageTitle">Featured Demos</h3>
+      {/* Featured Demos - 独立卡片 */}
+      <div className="card">
+        <div className="ImageTitleContainer">
+          <h3 className="ImageTitle">Featured Demos</h3>
+        </div>
+        <div className="VideoContainer">
+          <div className="MediaItem">
+            <video controls>
+              <source src={diabloImmortalVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
-          <div className="VideoContainer">
-            <div className="MediaItem">
-              <video controls>
-                <source src={diabloImmortalVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div className="MediaItem">
-              <video controls>
-                <source src={gameRunVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div className="MediaItem">
+            <video controls>
+              <source src={gameRunVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
-        </section>
+        </div>
+      </div>
 
-        {/* Character Rendering */}
-        <section className="rendering-section">
+      {/* Character Rendering - Section Title */}
+      <div className="card">
           <div className="ImageTitleContainer">
             <h3 className="ImageTitle">Character Rendering</h3>
           </div>
+      </div>
 
-          {/* G140 Character */}
+      {/* G140 Character Shader - Video Card */}
+      <div className="card">
           <div className="ImageTitleContainer">
-            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>G140 Character Shader</h4>
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>G140 Character Shader - Video</h4>
           </div>
-          {/* Video - Full Width */}
           <div className="VideoContainer">
             <div className="MediaItem">
               <video controls>
@@ -217,27 +218,34 @@ function Rendering() {
               </video>
             </div>
           </div>
-          {/* Images - Grid Layout (3 columns) */}
-          <div className="ImageContainer grid-3">
-            <img src={g140CharShader1} alt="G140 Shader 1" className="Image" onClick={() => handleImageClick(g140CharShader1, 'G140 Shader 1')} />
-            <img src={g140CharShader2} alt="G140 Shader 2" className="Image" onClick={() => handleImageClick(g140CharShader2, 'G140 Shader 2')} />
-            <img src={g140CharShader3} alt="G140 Shader 3" className="Image" onClick={() => handleImageClick(g140CharShader3, 'G140 Shader 3')} />
-            <img src={g140CharSkeleton} alt="G140 Skeleton" className="Image" onClick={() => handleImageClick(g140CharSkeleton, 'G140 Skeleton')} />
-            <img src={g140FaceDesign} alt="G140 Face Design" className="Image" onClick={() => handleImageClick(g140FaceDesign, 'G140 Face Design')} />
-            <img src={g140FaceDesign1} alt="G140 Face Design 1" className="Image" onClick={() => handleImageClick(g140FaceDesign1, 'G140 Face Design 1')} />
-            <img src={g140FaceImg33} alt="G140 Face 33" className="Image" onClick={() => handleImageClick(g140FaceImg33, 'G140 Face 33')} />
-            <img src={g140FaceImg34} alt="G140 Face 34" className="Image" onClick={() => handleImageClick(g140FaceImg34, 'G140 Face 34')} />
-            <img src={g140Img23} alt="G140 Image 23" className="Image" onClick={() => handleImageClick(g140Img23, 'G140 Image 23')} />
-            <img src={g140Img27} alt="G140 Image 27" className="Image" onClick={() => handleImageClick(g140Img27, 'G140 Image 27')} />
-            <img src={g140Img28} alt="G140 Image 28" className="Image" onClick={() => handleImageClick(g140Img28, 'G140 Image 28')} />
-            <img src={g140Img30} alt="G140 Image 30" className="Image" onClick={() => handleImageClick(g140Img30, 'G140 Image 30')} />
-          </div>
+      </div>
 
-          {/* Lookdev */}
+      {/* G140 Character Shader - Images Card */}
+      <div className="card">
           <div className="ImageTitleContainer">
-            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Lookdev Demo</h4>
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>G140 Character Shader - Images</h4>
           </div>
-          {/* Video - Full Width */}
+          <div className="ImageContainer grid-3">
+            <div className="MediaItem"><img src={g140CharShader1} alt="G140 Shader 1" className="Image" onClick={() => handleImageClick(g140CharShader1, 'G140 Shader 1')} /></div>
+            <div className="MediaItem"><img src={g140CharShader2} alt="G140 Shader 2" className="Image" onClick={() => handleImageClick(g140CharShader2, 'G140 Shader 2')} /></div>
+            <div className="MediaItem"><img src={g140CharShader3} alt="G140 Shader 3" className="Image" onClick={() => handleImageClick(g140CharShader3, 'G140 Shader 3')} /></div>
+            <div className="MediaItem"><img src={g140CharSkeleton} alt="G140 Skeleton" className="Image" onClick={() => handleImageClick(g140CharSkeleton, 'G140 Skeleton')} /></div>
+            <div className="MediaItem"><img src={g140FaceDesign} alt="G140 Face Design" className="Image" onClick={() => handleImageClick(g140FaceDesign, 'G140 Face Design')} /></div>
+            <div className="MediaItem"><img src={g140FaceDesign1} alt="G140 Face Design 1" className="Image" onClick={() => handleImageClick(g140FaceDesign1, 'G140 Face Design 1')} /></div>
+            <div className="MediaItem"><img src={g140FaceImg33} alt="G140 Face 33" className="Image" onClick={() => handleImageClick(g140FaceImg33, 'G140 Face 33')} /></div>
+            <div className="MediaItem"><img src={g140FaceImg34} alt="G140 Face 34" className="Image" onClick={() => handleImageClick(g140FaceImg34, 'G140 Face 34')} /></div>
+            <div className="MediaItem"><img src={g140Img23} alt="G140 Image 23" className="Image" onClick={() => handleImageClick(g140Img23, 'G140 Image 23')} /></div>
+            <div className="MediaItem"><img src={g140Img27} alt="G140 Image 27" className="Image" onClick={() => handleImageClick(g140Img27, 'G140 Image 27')} /></div>
+            <div className="MediaItem"><img src={g140Img28} alt="G140 Image 28" className="Image" onClick={() => handleImageClick(g140Img28, 'G140 Image 28')} /></div>
+            <div className="MediaItem"><img src={g140Img30} alt="G140 Image 30" className="Image" onClick={() => handleImageClick(g140Img30, 'G140 Image 30')} /></div>
+          </div>
+      </div>
+
+      {/* Lookdev Demo - Video Card */}
+      <div className="card">
+          <div className="ImageTitleContainer">
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Lookdev Demo - Video</h4>
+          </div>
           <div className="VideoContainer">
             <div className="MediaItem">
               <video controls>
@@ -246,18 +254,25 @@ function Rendering() {
               </video>
             </div>
           </div>
-          {/* Images - Three Column Grid (Gallery Style) */}
-          <div className="ImageContainer grid-3">
-            <img src={lookdevImg1} alt="Lookdev 1" className="Image" onClick={() => handleImageClick(lookdevImg1, 'Lookdev Demo 1')} />
-            <img src={lookdevImg2} alt="Lookdev 2" className="Image" onClick={() => handleImageClick(lookdevImg2, 'Lookdev Demo 2')} />
-            <img src={lookdevImg3} alt="Lookdev 3" className="Image" onClick={() => handleImageClick(lookdevImg3, 'Lookdev Demo 3')} />
-          </div>
+      </div>
 
-          {/* Diablo Immortal Character */}
+      {/* Lookdev Demo - Images Card */}
+      <div className="card">
           <div className="ImageTitleContainer">
-            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Diablo Immortal Character</h4>
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Lookdev Demo - Images</h4>
           </div>
-          {/* Videos - Full Width, One Per Row */}
+          <div className="ImageContainer grid-3">
+            <div className="MediaItem"><img src={lookdevImg1} alt="Lookdev 1" className="Image" onClick={() => handleImageClick(lookdevImg1, 'Lookdev Demo 1')} /></div>
+            <div className="MediaItem"><img src={lookdevImg2} alt="Lookdev 2" className="Image" onClick={() => handleImageClick(lookdevImg2, 'Lookdev Demo 2')} /></div>
+            <div className="MediaItem"><img src={lookdevImg3} alt="Lookdev 3" className="Image" onClick={() => handleImageClick(lookdevImg3, 'Lookdev Demo 3')} /></div>
+          </div>
+      </div>
+
+      {/* Diablo Immortal Character - Videos Card */}
+      <div className="card">
+          <div className="ImageTitleContainer">
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Diablo Immortal Character - Videos</h4>
+          </div>
           <div className="VideoContainer">
             <div className="MediaItem">
               <video controls>
@@ -296,30 +311,37 @@ function Rendering() {
               </video>
             </div>
           </div>
-          {/* Images - Grid Layout (3 columns) */}
-          <div className="ImageContainer grid-3">
-            <img src={charDiablo16} alt="Diablo Character 16" className="Image" onClick={() => handleImageClick(charDiablo16, 'Diablo Character 16')} />
-            <img src={charDiablo17} alt="Diablo Character 17" className="Image" onClick={() => handleImageClick(charDiablo17, 'Diablo Character 17')} />
-            <img src={charDiablo18} alt="Diablo Character 18" className="Image" onClick={() => handleImageClick(charDiablo18, 'Diablo Character 18')} />
-            <img src={charDiablo21} alt="Diablo Character 21" className="Image" onClick={() => handleImageClick(charDiablo21, 'Diablo Character 21')} />
-            <img src={charDiablo22} alt="Diablo Character 22" className="Image" onClick={() => handleImageClick(charDiablo22, 'Diablo Character 22')} />
-            <img src={charDiablo25} alt="Diablo Character 25" className="Image" onClick={() => handleImageClick(charDiablo25, 'Diablo Character 25')} />
-            <img src={charDiablo26} alt="Diablo Character 26" className="Image" onClick={() => handleImageClick(charDiablo26, 'Diablo Character 26')} />
-            <img src={charDiablo27} alt="Diablo Character 27" className="Image" onClick={() => handleImageClick(charDiablo27, 'Diablo Character 27')} />
-            <img src={charDiablo28} alt="Diablo Character 28" className="Image" onClick={() => handleImageClick(charDiablo28, 'Diablo Character 28')} />
-            <img src={charDiablo29} alt="Diablo Character 29" className="Image" onClick={() => handleImageClick(charDiablo29, 'Diablo Character 29')} />
-            <img src={charDiablo30} alt="Diablo Character 30" className="Image" onClick={() => handleImageClick(charDiablo30, 'Diablo Character 30')} />
-            <img src={charDiablo32} alt="Diablo Character 32" className="Image" onClick={() => handleImageClick(charDiablo32, 'Diablo Character 32')} />
-            <img src={charDiablo33} alt="Diablo Character 33" className="Image" onClick={() => handleImageClick(charDiablo33, 'Diablo Character 33')} />
-            <img src={charDiablo34} alt="Diablo Character 34" className="Image" onClick={() => handleImageClick(charDiablo34, 'Diablo Character 34')} />
-            <img src={charDiablo35} alt="Diablo Character 35" className="Image" onClick={() => handleImageClick(charDiablo35, 'Diablo Character 35')} />
-          </div>
+      </div>
 
-          {/* Super Mecha Champions */}
+      {/* Diablo Immortal Character - Images Card */}
+      <div className="card">
           <div className="ImageTitleContainer">
-            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Super Mecha Champions</h4>
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Diablo Immortal Character - Images</h4>
           </div>
-          {/* Videos - Full Width */}
+          <div className="ImageContainer grid-3">
+            <div className="MediaItem"><img src={charDiablo16} alt="Diablo Character 16" className="Image" onClick={() => handleImageClick(charDiablo16, 'Diablo Character 16')} /></div>
+            <div className="MediaItem"><img src={charDiablo17} alt="Diablo Character 17" className="Image" onClick={() => handleImageClick(charDiablo17, 'Diablo Character 17')} /></div>
+            <div className="MediaItem"><img src={charDiablo18} alt="Diablo Character 18" className="Image" onClick={() => handleImageClick(charDiablo18, 'Diablo Character 18')} /></div>
+            <div className="MediaItem"><img src={charDiablo21} alt="Diablo Character 21" className="Image" onClick={() => handleImageClick(charDiablo21, 'Diablo Character 21')} /></div>
+            <div className="MediaItem"><img src={charDiablo22} alt="Diablo Character 22" className="Image" onClick={() => handleImageClick(charDiablo22, 'Diablo Character 22')} /></div>
+            <div className="MediaItem"><img src={charDiablo25} alt="Diablo Character 25" className="Image" onClick={() => handleImageClick(charDiablo25, 'Diablo Character 25')} /></div>
+            <div className="MediaItem"><img src={charDiablo26} alt="Diablo Character 26" className="Image" onClick={() => handleImageClick(charDiablo26, 'Diablo Character 26')} /></div>
+            <div className="MediaItem"><img src={charDiablo27} alt="Diablo Character 27" className="Image" onClick={() => handleImageClick(charDiablo27, 'Diablo Character 27')} /></div>
+            <div className="MediaItem"><img src={charDiablo28} alt="Diablo Character 28" className="Image" onClick={() => handleImageClick(charDiablo28, 'Diablo Character 28')} /></div>
+            <div className="MediaItem"><img src={charDiablo29} alt="Diablo Character 29" className="Image" onClick={() => handleImageClick(charDiablo29, 'Diablo Character 29')} /></div>
+            <div className="MediaItem"><img src={charDiablo30} alt="Diablo Character 30" className="Image" onClick={() => handleImageClick(charDiablo30, 'Diablo Character 30')} /></div>
+            <div className="MediaItem"><img src={charDiablo32} alt="Diablo Character 32" className="Image" onClick={() => handleImageClick(charDiablo32, 'Diablo Character 32')} /></div>
+            <div className="MediaItem"><img src={charDiablo33} alt="Diablo Character 33" className="Image" onClick={() => handleImageClick(charDiablo33, 'Diablo Character 33')} /></div>
+            <div className="MediaItem"><img src={charDiablo34} alt="Diablo Character 34" className="Image" onClick={() => handleImageClick(charDiablo34, 'Diablo Character 34')} /></div>
+            <div className="MediaItem"><img src={charDiablo35} alt="Diablo Character 35" className="Image" onClick={() => handleImageClick(charDiablo35, 'Diablo Character 35')} /></div>
+          </div>
+      </div>
+
+      {/* Super Mecha Champions - Videos Card */}
+      <div className="card">
+          <div className="ImageTitleContainer">
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Super Mecha Champions - Videos</h4>
+          </div>
           <div className="VideoContainer">
             <div className="MediaItem">
               <video controls>
@@ -334,23 +356,30 @@ function Rendering() {
               </video>
             </div>
           </div>
-          {/* Images - Grid Layout (3 columns) */}
-          <div className="ImageContainer grid-3">
-            <img src={smcImg46} alt="SMC Image" className="Image" onClick={() => handleImageClick(smcImg46, 'Super Mecha Champions')} />
-          </div>
-        </section>
+      </div>
 
-        {/* Environment Rendering */}
-        <section className="rendering-section">
+      {/* Super Mecha Champions - Image Card */}
+      <div className="card">
+          <div className="ImageTitleContainer">
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Super Mecha Champions - Image</h4>
+          </div>
+          <div className="ImageContainer grid-3">
+            <div className="MediaItem"><img src={smcImg46} alt="SMC Image" className="Image" onClick={() => handleImageClick(smcImg46, 'Super Mecha Champions')} /></div>
+          </div>
+      </div>
+
+      {/* Environment Rendering - Section Title */}
+      <div className="card">
           <div className="ImageTitleContainer">
             <h3 className="ImageTitle">Environment Rendering</h3>
           </div>
+      </div>
 
-          {/* G140 Environment */}
+      {/* G140 Environment - Videos Card */}
+      <div className="card">
           <div className="ImageTitleContainer">
-            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>G140 Environment</h4>
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>G140 Environment - Videos</h4>
           </div>
-          {/* Videos - Full Width */}
           <div className="VideoContainer">
             <div className="MediaItem">
               <video controls>
@@ -377,44 +406,55 @@ function Rendering() {
               </video>
             </div>
           </div>
-          {/* Images - Grid Layout (3 columns) */}
-          <div className="ImageContainer grid-3">
-            <img src={envG140Lighting} alt="G140 Lighting" className="Image" onClick={() => handleImageClick(envG140Lighting, 'G140 Dynamic Lighting')} />
-          </div>
+      </div>
 
-          {/* Diablo Immortal Environment */}
+      {/* G140 Environment - Image Card */}
+      <div className="card">
+          <div className="ImageTitleContainer">
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>G140 Environment - Image</h4>
+          </div>
+          <div className="ImageContainer grid-3">
+            <div className="MediaItem"><img src={envG140Lighting} alt="G140 Lighting" className="Image" onClick={() => handleImageClick(envG140Lighting, 'G140 Dynamic Lighting')} /></div>
+          </div>
+      </div>
+
+      {/* Diablo Immortal Environment Card */}
+      <div className="card">
           <div className="ImageTitleContainer">
             <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Diablo Immortal Environment</h4>
           </div>
           <div className="ImageContainer grid-3">
-            <img src={envDiablo13} alt="Diablo Env 13" className="Image" onClick={() => handleImageClick(envDiablo13, 'Diablo Immortal Environment 13')} />
-            <img src={envDiablo14} alt="Diablo Env 14" className="Image" onClick={() => handleImageClick(envDiablo14, 'Diablo Immortal Environment 14')} />
-            <img src={envDiablo15} alt="Diablo Env 15" className="Image" onClick={() => handleImageClick(envDiablo15, 'Diablo Immortal Environment 15')} />
+            <div className="MediaItem"><img src={envDiablo13} alt="Diablo Env 13" className="Image" onClick={() => handleImageClick(envDiablo13, 'Diablo Immortal Environment 13')} /></div>
+            <div className="MediaItem"><img src={envDiablo14} alt="Diablo Env 14" className="Image" onClick={() => handleImageClick(envDiablo14, 'Diablo Immortal Environment 14')} /></div>
+            <div className="MediaItem"><img src={envDiablo15} alt="Diablo Env 15" className="Image" onClick={() => handleImageClick(envDiablo15, 'Diablo Immortal Environment 15')} /></div>
           </div>
+      </div>
 
-          {/* SKY Environment */}
+      {/* SKY Environment Card */}
+      <div className="card">
           <div className="ImageTitleContainer">
             <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>SKY Environment</h4>
           </div>
           <div className="ImageContainer grid-3">
-            <img src={sky39} alt="SKY 39" className="Image" onClick={() => handleImageClick(sky39, 'SKY Environment 39')} />
-            <img src={sky44} alt="SKY 44" className="Image" onClick={() => handleImageClick(sky44, 'SKY Environment 44')} />
-            <img src={sky46} alt="SKY 46" className="Image" onClick={() => handleImageClick(sky46, 'SKY Environment 46')} />
-            <img src={sky49} alt="SKY 49" className="Image" onClick={() => handleImageClick(sky49, 'SKY Environment 49')} />
+            <div className="MediaItem"><img src={sky39} alt="SKY 39" className="Image" onClick={() => handleImageClick(sky39, 'SKY Environment 39')} /></div>
+            <div className="MediaItem"><img src={sky44} alt="SKY 44" className="Image" onClick={() => handleImageClick(sky44, 'SKY Environment 44')} /></div>
+            <div className="MediaItem"><img src={sky46} alt="SKY 46" className="Image" onClick={() => handleImageClick(sky46, 'SKY Environment 46')} /></div>
+            <div className="MediaItem"><img src={sky49} alt="SKY 49" className="Image" onClick={() => handleImageClick(sky49, 'SKY Environment 49')} /></div>
           </div>
-        </section>
+      </div>
 
-        {/* VFX Rendering */}
-        <section className="rendering-section">
+      {/* VFX Rendering - Section Title */}
+      <div className="card">
           <div className="ImageTitleContainer">
             <h3 className="ImageTitle">Visual Effects (VFX)</h3>
           </div>
+      </div>
 
-          {/* G140 VFX */}
+      {/* G140 VFX - Videos Card */}
+      <div className="card">
           <div className="ImageTitleContainer">
-            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>G140 VFX</h4>
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>G140 VFX - Videos</h4>
           </div>
-          {/* Videos - Full Width */}
           <div className="VideoContainer">
             <div className="MediaItem">
               <video controls>
@@ -453,18 +493,25 @@ function Rendering() {
               </video>
             </div>
           </div>
-          {/* Images - Grid Layout (3 columns) */}
-          <div className="ImageContainer grid-3">
-            <img src={vfxG140Cloud} alt="G140 Cloud Image" className="Image" onClick={() => handleImageClick(vfxG140Cloud, 'G140 Cloud VFX')} />
-            <img src={vfxG140CubeWeapon} alt="G140 Cube Weapon" className="Image" onClick={() => handleImageClick(vfxG140CubeWeapon, 'G140 Cube Weapon VFX')} />
-            <img src={vfxOptimized} alt="Optimized Performance" className="Image" onClick={() => handleImageClick(vfxOptimized, 'Optimized Performance')} />
-          </div>
+      </div>
 
-          {/* Fate VFX */}
+      {/* G140 VFX - Images Card */}
+      <div className="card">
           <div className="ImageTitleContainer">
-            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Fate VFX</h4>
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>G140 VFX - Images</h4>
           </div>
-          {/* Videos - Full Width */}
+          <div className="ImageContainer grid-3">
+            <div className="MediaItem"><img src={vfxG140Cloud} alt="G140 Cloud Image" className="Image" onClick={() => handleImageClick(vfxG140Cloud, 'G140 Cloud VFX')} /></div>
+            <div className="MediaItem"><img src={vfxG140CubeWeapon} alt="G140 Cube Weapon" className="Image" onClick={() => handleImageClick(vfxG140CubeWeapon, 'G140 Cube Weapon VFX')} /></div>
+            <div className="MediaItem"><img src={vfxOptimized} alt="Optimized Performance" className="Image" onClick={() => handleImageClick(vfxOptimized, 'Optimized Performance')} /></div>
+          </div>
+      </div>
+
+      {/* Fate VFX - Video Card */}
+      <div className="card">
+          <div className="ImageTitleContainer">
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Fate VFX - Video</h4>
+          </div>
           <div className="VideoContainer">
             <div className="MediaItem">
               <video controls>
@@ -473,17 +520,22 @@ function Rendering() {
               </video>
             </div>
           </div>
-          {/* Images - Grid Layout (3 columns) */}
-          <div className="ImageContainer grid-3">
-            <img src={vfxFate56} alt="Fate 56" className="Image" onClick={() => handleImageClick(vfxFate56, 'Fate VFX 56')} />
-            <img src={vfxFate58} alt="Fate 58" className="Image" onClick={() => handleImageClick(vfxFate58, 'Fate VFX 58')} />
-            <img src={vfxFate59} alt="Fate 59" className="Image" onClick={() => handleImageClick(vfxFate59, 'Fate VFX 59')} />
-            <img src={vfxFate60} alt="Fate 60" className="Image" onClick={() => handleImageClick(vfxFate60, 'Fate VFX 60')} />
-            <img src={vfxFate61} alt="Fate 61" className="Image" onClick={() => handleImageClick(vfxFate61, 'Fate VFX 61')} />
-            <img src={vfxFate65} alt="Fate 65" className="Image" onClick={() => handleImageClick(vfxFate65, 'Fate VFX 65')} />
-            <img src={vfxFate66} alt="Fate 66" className="Image" onClick={() => handleImageClick(vfxFate66, 'Fate VFX 66')} />
+      </div>
+
+      {/* Fate VFX - Images Card */}
+      <div className="card">
+          <div className="ImageTitleContainer">
+            <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Fate VFX - Images</h4>
           </div>
-        </section>
+          <div className="ImageContainer grid-3">
+            <div className="MediaItem"><img src={vfxFate56} alt="Fate 56" className="Image" onClick={() => handleImageClick(vfxFate56, 'Fate VFX 56')} /></div>
+            <div className="MediaItem"><img src={vfxFate58} alt="Fate 58" className="Image" onClick={() => handleImageClick(vfxFate58, 'Fate VFX 58')} /></div>
+            <div className="MediaItem"><img src={vfxFate59} alt="Fate 59" className="Image" onClick={() => handleImageClick(vfxFate59, 'Fate VFX 59')} /></div>
+            <div className="MediaItem"><img src={vfxFate60} alt="Fate 60" className="Image" onClick={() => handleImageClick(vfxFate60, 'Fate VFX 60')} /></div>
+            <div className="MediaItem"><img src={vfxFate61} alt="Fate 61" className="Image" onClick={() => handleImageClick(vfxFate61, 'Fate VFX 61')} /></div>
+            <div className="MediaItem"><img src={vfxFate65} alt="Fate 65" className="Image" onClick={() => handleImageClick(vfxFate65, 'Fate VFX 65')} /></div>
+            <div className="MediaItem"><img src={vfxFate66} alt="Fate 66" className="Image" onClick={() => handleImageClick(vfxFate66, 'Fate VFX 66')} /></div>
+          </div>
       </div>
 
       {/* Image Zoom Modal - Inline Implementation */}

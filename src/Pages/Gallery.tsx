@@ -2,7 +2,9 @@
  * Gallery Page Component
  * Displays a curated collection of technical art work
  */
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
+import '../Container/ImageContainer.css';
+
 import gameRunVideo from '../assets/Gallery/Game run.mp4';
 import diabloVideo from '../assets/Gallery/Diablo Immortal.mp4';
 import toonshader1 from '../assets/Gallery/Toonshader_1.png';
@@ -12,54 +14,9 @@ import character2 from '../assets/Gallery/Character_2.png';
 import vfx1 from '../assets/Gallery/VFX_1.png';
 import vfx2 from '../assets/Gallery/VFX_2.gif';
 
-interface GalleryItemProps {
-  src: string;
-  alt: string;
-  title: string;
-  description: string;
-  type: 'image' | 'video' | 'gif';
-  colorScheme: 'purple' | 'blue' | 'violet';
-  videoRef?: (el: HTMLVideoElement | null) => void;
-}
-
-/**
- * GalleryItem Component
- * Reusable component for displaying gallery items with consistent styling
- */
-function GalleryItem({ src, alt, title, description, type, colorScheme, videoRef }: GalleryItemProps) {
-  const colorClasses = {
-    purple: 'gallery-item-purple',
-    blue: 'gallery-item-blue',
-    violet: 'gallery-item-violet'
-  };
-
-  return (
-    <div className={`gallery-item ${colorClasses[colorScheme]}`}>
-      {type === 'video' ? (
-        <>
-          <h4 className="gallery-item-title">{title}</h4>
-          <video
-            ref={videoRef}
-            controls
-            className="gallery-video"
-          >
-            <source src={src} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </>
-      ) : (
-        <>
-          <img src={src} alt={alt} className="gallery-image" />
-          <h3 className="gallery-item-title">{title}</h3>
-          <p className="gallery-item-description">{description}</p>
-        </>
-      )}
-    </div>
-  );
-}
-
 function Gallery() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [zoomImage, setZoomImage] = useState<{ src: string; alt: string } | null>(null);
 
   // Video playback controls music volume
   useEffect(() => {
@@ -90,95 +47,173 @@ function Gallery() {
     };
   }, []);
 
-  return (
-    <div className="card">
-      <h2 className="page-title">Gallery</h2>
+  // Handle image click
+  const handleImageClick = (src: string, alt: string) => {
+    setZoomImage({ src, alt });
+    document.body.style.overflow = 'hidden';
+  };
 
-      <div className="gallery-container">
+  // Close zoom modal
+  const handleCloseZoom = () => {
+    setZoomImage(null);
+    document.body.style.overflow = 'unset';
+  };
+
+  // Close on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && zoomImage) {
+        handleCloseZoom();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [zoomImage]);
+
+  return (
+    <div className="gallery-page">
+      <div className="card">
+        <h2 className="page-title">Gallery</h2>
         <p className="gallery-intro">
           A showcase of my technical art work, including project demos, character designs, and visual effects.
         </p>
+      </div>
 
-        {/* Video Showcase Section */}
-        <section className="gallery-section">
-          <h3 className="gallery-section-title">Project Demos</h3>
-          <div className="gallery-video-grid">
-            <GalleryItem
-              src={gameRunVideo}
-              alt="Game Run Demo"
-              title="Game Run"
-              description=""
-              type="video"
-              colorScheme="purple"
-              videoRef={el => { videoRefs.current[0] = el; }}
-            />
-            <GalleryItem
-              src={diabloVideo}
-              alt="Diablo Immortal Demo"
-              title="Diablo Immortal"
-              description=""
-              type="video"
-              colorScheme="violet"
-              videoRef={el => { videoRefs.current[1] = el; }}
-            />
+      {/* Project Demos - Section Title */}
+      <div className="card">
+        <div className="ImageTitleContainer">
+          <h3 className="ImageTitle">Project Demos</h3>
+        </div>
+      </div>
+
+      {/* Project Demos - Individual Video Cards */}
+      <div className="VideoContainer">
+        <div className="card">
+          <div className="MediaItem">
+            <div className="ImageTitleContainer">
+              <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Game Run</h4>
+            </div>
+            <video
+              ref={el => { videoRefs.current[0] = el; }}
+              controls
+            >
+              <source src={gameRunVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
-        </section>
+        </div>
+        <div className="card">
+          <div className="MediaItem">
+            <div className="ImageTitleContainer">
+              <h4 className="ImageTitle" style={{ fontSize: '1.3rem' }}>Diablo Immortal</h4>
+            </div>
+            <video
+              ref={el => { videoRefs.current[1] = el; }}
+              controls
+            >
+              <source src={diabloVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
 
-        {/* Featured Work Section */}
-        <section className="gallery-section">
-          <h3 className="gallery-section-title">Featured Work</h3>
-          <div className="gallery-image-grid">
-            <GalleryItem
+      {/* Featured Work - Section Title */}
+      <div className="card">
+        <div className="ImageTitleContainer">
+          <h3 className="ImageTitle">Featured Work</h3>
+        </div>
+      </div>
+
+      {/* Featured Work - Individual Cards */}
+      <div className="ImageContainer">
+        <div className="card">
+          <div className="MediaItem">
+            <img
               src={toonshader1}
               alt="Toon Shading"
-              title="Toon Shading"
-              description="Custom toon shader effects for stylized game rendering"
-              type="image"
-              colorScheme="purple"
+              className="Image"
+              onClick={() => handleImageClick(toonshader1, 'Toon Shading')}
             />
-            <GalleryItem
+            <h4 style={{ margin: '0.8rem 0 0.3rem 0', fontSize: '1.1rem', fontWeight: '600', color: '#2c3e50' }}>Toon Shading</h4>
+            <p style={{ margin: '0', fontSize: '0.9rem', color: '#666', lineHeight: '1.4' }}>Custom toon shader effects for stylized game rendering</p>
+          </div>
+        </div>
+        <div className="card">
+          <div className="MediaItem">
+            <img
               src={toonshader2}
               alt="Dynamic Lighting"
-              title="Dynamic Lighting"
-              description="Advanced lighting techniques for toon-shaded environments"
-              type="image"
-              colorScheme="purple"
+              className="Image"
+              onClick={() => handleImageClick(toonshader2, 'Dynamic Lighting')}
             />
-            <GalleryItem
+            <h4 style={{ margin: '0.8rem 0 0.3rem 0', fontSize: '1.1rem', fontWeight: '600', color: '#2c3e50' }}>Dynamic Lighting</h4>
+            <p style={{ margin: '0', fontSize: '0.9rem', color: '#666', lineHeight: '1.4' }}>Advanced lighting techniques for toon-shaded environments</p>
+          </div>
+        </div>
+        <div className="card">
+          <div className="MediaItem">
+            <img
               src={character1}
               alt="Character Shader"
-              title="Character Shader"
-              description="Character modeling and shader development"
-              type="image"
-              colorScheme="blue"
+              className="Image"
+              onClick={() => handleImageClick(character1, 'Character Shader')}
             />
-            <GalleryItem
+            <h4 style={{ margin: '0.8rem 0 0.3rem 0', fontSize: '1.1rem', fontWeight: '600', color: '#2c3e50' }}>Character Shader</h4>
+            <p style={{ margin: '0', fontSize: '0.9rem', color: '#666', lineHeight: '1.4' }}>Character modeling and shader development</p>
+          </div>
+        </div>
+        <div className="card">
+          <div className="MediaItem">
+            <img
               src={character2}
               alt="Character Design"
-              title="Character Design"
-              description="Stylized character art and texturing"
-              type="image"
-              colorScheme="blue"
+              className="Image"
+              onClick={() => handleImageClick(character2, 'Character Design')}
             />
-            <GalleryItem
+            <h4 style={{ margin: '0.8rem 0 0.3rem 0', fontSize: '1.1rem', fontWeight: '600', color: '#2c3e50' }}>Character Design</h4>
+            <p style={{ margin: '0', fontSize: '0.9rem', color: '#666', lineHeight: '1.4' }}>Stylized character art and texturing</p>
+          </div>
+        </div>
+        <div className="card">
+          <div className="MediaItem">
+            <img
               src={vfx1}
-              alt="VFX Cloud"
-              title="Cloud VFX"
-              description="Real-time cloud and atmospheric effects"
-              type="image"
-              colorScheme="violet"
+              alt="Cloud VFX"
+              className="Image"
+              onClick={() => handleImageClick(vfx1, 'Cloud VFX')}
             />
-            <GalleryItem
+            <h4 style={{ margin: '0.8rem 0 0.3rem 0', fontSize: '1.1rem', fontWeight: '600', color: '#2c3e50' }}>Cloud VFX</h4>
+            <p style={{ margin: '0', fontSize: '0.9rem', color: '#666', lineHeight: '1.4' }}>Real-time cloud and atmospheric effects</p>
+          </div>
+        </div>
+        <div className="card">
+          <div className="MediaItem">
+            <img
               src={vfx2}
               alt="Weapon VFX"
-              title="Weapon VFX"
-              description="Weapon effects and particle systems"
-              type="gif"
-              colorScheme="violet"
+              className="Image"
+              onClick={() => handleImageClick(vfx2, 'Weapon VFX')}
             />
+            <h4 style={{ margin: '0.8rem 0 0.3rem 0', fontSize: '1.1rem', fontWeight: '600', color: '#2c3e50' }}>Weapon VFX</h4>
+            <p style={{ margin: '0', fontSize: '0.9rem', color: '#666', lineHeight: '1.4' }}>Weapon effects and particle system</p>
           </div>
-        </section>
+        </div>
       </div>
+
+      {/* Image Zoom Modal */}
+      {zoomImage && (
+        <div className="image-zoom-overlay" onClick={handleCloseZoom}>
+          <div className="image-zoom-container" onClick={(e) => e.stopPropagation()}>
+            <button className="image-zoom-close" onClick={handleCloseZoom} title="Close (Esc)">
+              ✕
+            </button>
+            <img src={zoomImage.src} alt={zoomImage.alt} className="image-zoom-content" />
+            <div className="image-zoom-caption">{zoomImage.alt}</div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

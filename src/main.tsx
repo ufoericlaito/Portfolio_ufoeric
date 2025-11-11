@@ -7,7 +7,7 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/Portfolio_ufoeric">
     <App />
   </BrowserRouter>
 );

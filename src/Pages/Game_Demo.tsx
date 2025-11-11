@@ -1,6 +1,5 @@
 /**
  * Game Demo Page Component
- * Showcases interactive game demos and technical capabilities
  */
 
 interface DemoCardProps {
@@ -38,42 +37,50 @@ function DemoCard({ icon, title, description, technologies, colorScheme }: DemoC
 
 function Game_Demo() {
   return (
-    <div className="card">
-      <h2 className="page-title">Game Demos</h2>
-
-      <div className="game-demo-container">
+    <div className="game-demo-page">
+      <div className="card">
+        <h2 className="page-title">Game Demos</h2>
         <p className="game-demo-intro">
           Interactive game demos showcasing technical art capabilities,
           shader development, and real-time rendering techniques.
         </p>
+      </div>
 
-        <div className="demo-list">
+      {/* Unity Toon Shader Demo - 独立卡片 */}
+      <div className="card">
+        <DemoCard
+          icon="🎮"
+          title="Unity Toon Shader Demo"
+          description="A demonstration of custom toon shading techniques in Unity, featuring stylized rendering, outline effects, and dynamic lighting."
+          technologies="Unity, HLSL, Custom Shaders"
+          colorScheme="purple"
+        />
+      </div>
 
-          <DemoCard
-            icon="🎮"
-            title="Unity Toon Shader Demo"
-            description="A demonstration of custom toon shading techniques in Unity, featuring stylized rendering, outline effects, and dynamic lighting."
-            technologies="Unity, HLSL, Custom Shaders"
-            colorScheme="purple"
-          />
+      {/* Unreal Engine VFX Showcase - 独立卡片 */}
+      <div className="card">
+        <DemoCard
+          icon="🌟"
+          title="Unreal Engine VFX Showcase"
+          description="Real-time visual effects and particle systems created in Unreal Engine 4/5, demonstrating advanced material creation and Niagara systems."
+          technologies="Unreal Engine 4/5, Niagara, Material Editor"
+          colorScheme="violet"
+        />
+      </div>
 
-          <DemoCard
-            icon="🌟"
-            title="Unreal Engine VFX Showcase"
-            description="Real-time visual effects and particle systems created in Unreal Engine 4/5, demonstrating advanced material creation and Niagara systems."
-            technologies="Unreal Engine 4/5, Niagara, Material Editor"
-            colorScheme="violet"
-          />
+      {/* PBR Material Demo - 独立卡片 */}
+      <div className="card">
+        <DemoCard
+          icon="💎"
+          title="PBR Material Demo"
+          description="Physically-based rendering materials with advanced texturing techniques, showcasing realistic surface properties and lighting interactions."
+          technologies="Substance Painter, Unity/UE, PBR Workflow"
+          colorScheme="blue"
+        />
+      </div>
 
-          <DemoCard
-            icon="💎"
-            title="PBR Material Demo"
-            description="Physically-based rendering materials with advanced texturing techniques, showcasing realistic surface properties and lighting interactions."
-            technologies="Substance Painter, Unity/UE, PBR Workflow"
-            colorScheme="blue"
-          />
-        </div>
-
+      {/* Notice - 独立卡片 */}
+      <div className="card">
         <div className="demo-notice">
           <p className="demo-notice-text">
             🎬 Interactive demos and video showcases coming soon!

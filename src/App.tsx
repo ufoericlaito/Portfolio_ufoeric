@@ -15,6 +15,7 @@ import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Gallery from './Pages/Gallery';
 import Game_Demo from './Pages/Game_Demo';
+import Mediapage from './Pages/Mediapage';
 import Projects from './Pages/Projects';
 import Rendering from './Pages/Rendering';
 import Work_Experience from './Pages/Work_Experience';
@@ -76,14 +77,34 @@ function App() {
         <Routes>
           {/* Home Page */}
           <Route path="/" element={
-            <div className="hero">
-              <h1 className="hero-title">Welcome to UFOERIC Portfolio</h1>
-              <p className="hero-description">
-                Explore my collection of technical art projects, game development work,
-                and visual productions. Each project showcases different aspects of my
-                skills in Unity, Unreal Engine, and shader development.
-              </p>
-            </div>
+            <>
+              <div className="hero">
+                <h1 className="hero-title">Welcome to UFOERIC Portfolio</h1>
+                <p className="hero-description">
+                  Explore my collection of technical art projects, game development work,
+                  and visual productions. Each project showcases different aspects of my
+                  skills in Unity, Unreal Engine, and shader development.
+                </p>
+              </div>
+
+              {/* Media Blog Card */}
+              <Link to="/Media" style={{ textDecoration: 'none' }}>
+                <div className="hero" style={{ cursor: 'pointer', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}
+                     onMouseEnter={(e) => {
+                       e.currentTarget.style.transform = 'translateY(-5px)';
+                       e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+                     }}
+                     onMouseLeave={(e) => {
+                       e.currentTarget.style.transform = 'translateY(0)';
+                       e.currentTarget.style.boxShadow = 'none';
+                     }}>
+                  <h2 className="hero-title" style={{ fontSize: '2.5rem' }}>📸 Media Photo & Video</h2>
+                  <p className="hero-description">
+                    Professional photos and contemporary dance videos
+                  </p>
+                </div>
+              </Link>
+            </>
           } />
 
           {/* Page Routes */}
@@ -91,6 +112,7 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Gallery" element={<Gallery />} />
           <Route path="/Game_Demo" element={<Game_Demo />} />
+          <Route path="/Media" element={<Mediapage />} />
           <Route path="/Projects" element={<Projects />} />
           <Route path="/Rendering" element={<Rendering />} />
           <Route path="/Work_Experience" element={<Work_Experience />} />

@@ -121,17 +121,37 @@ a:hover {
   padding: 1rem 2rem;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* 霓虹灯双线边框效果 */
+  border: 4px double var(--neon-green);
+  border-top: none;
+
+  /* 偏移阴影效果 */
+  box-shadow: -10px 10px 0 var(--neon-pink);
+
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  border-radius: 0 0 15px 15px;
+
+  /* 轻微倾斜 */
+  transform: rotate(-0.2deg);
+
+  /* 平滑过渡动画 */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.3s ease;
 }
 
 .navbar:hover {
   background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+
+  /* 悬停时反向倾斜 */
+  transform: rotate(0.2deg);
+
+  /* 悬停时阴影变化 */
+  box-shadow: -14px 14px 0 var(--neon-blue);
+
+  /* 悬停时边框颜色变化 */
+  border-color: var(--neon-purple);
 }
 
 .nav {
@@ -159,14 +179,35 @@ a:hover {
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  transition: all 0.3s ease;
+
+  /* 霓虹灯边框效果 */
+  border: 2px solid transparent;
+
+  /* 轻微倾斜 */
+  transform: rotate(0.3deg);
+
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .nav-links a:hover {
   background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  /* 霓虹灯双线边框 */
+  border: 2px double var(--neon-pink);
+
+  /* 偏移阴影 */
+  box-shadow: -4px 4px 0 var(--neon-green);
+
+  /* 反向倾斜并上浮 */
+  transform: rotate(-0.3deg) translateY(-2px);
+}
+
+.nav-links a.active {
+  /* 激活状态的霓虹灯效果 */
+  border: 2px double var(--neon-blue);
+  box-shadow: -3px 3px 0 var(--neon-purple);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 
@@ -352,7 +393,31 @@ a:hover {
   backdrop-filter: blur(10px);
   border-radius: 20px;
   margin: 2rem 0;
+
+  /* 霓虹灯双线边框效果 */
+  border: 4px double var(--neon-pink);
+
+  /* 偏移阴影效果 */
+  box-shadow: -12px 12px 0 var(--neon-green);
+
+  /* 轻微倾斜 */
+  transform: rotate(-0.3deg);
+
+  /* 平滑过渡动画 */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
   animation: fadeIn 0.8s ease;
+}
+
+.hero:hover {
+  /* 悬停时反向倾斜 */
+  transform: rotate(0.3deg) translateY(-3px);
+
+  /* 悬停时阴影变化 */
+  box-shadow: -16px 16px 0 var(--neon-blue);
+
+  /* 悬停时边框颜色变化 */
+  border-color: var(--neon-purple);
 }
 
 .hero-icon {
@@ -773,19 +838,46 @@ a:hover {
   }
 }
 
+/* ========== 霓虹灯颜色变量 ========== */
+:root {
+  --neon-pink: #ff006e;
+  --neon-green: #00f5d4;
+  --neon-blue: #667eea;
+  --neon-purple: #764ba2;
+}
+
 .card {
   padding: 2rem;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  /* 霓虹灯双线边框效果 */
+  border: 4px double var(--neon-blue);
+
+  /* 偏移阴影效果 */
+  box-shadow: -12px 12px 0 var(--neon-purple);
+
   margin: 1rem 0;
+
+  /* 轻微倾斜 */
+  transform: rotate(0.5deg);
+
+  /* 平滑过渡动画 */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
   animation: fadeIn 0.5s ease;
-  transition: all 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  /* 悬停时反向倾斜 */
+  transform: rotate(-0.5deg) translateY(-5px);
+
+  /* 悬停时阴影变化 */
+  box-shadow: -16px 16px 0 var(--neon-green);
+
+  /* 悬停时边框颜色变化 */
+  border-color: var(--neon-pink);
 }
 
 /* ========== Rendering 椤甸潰鏍峰紡 ========== */

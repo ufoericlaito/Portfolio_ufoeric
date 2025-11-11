@@ -80,13 +80,56 @@
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  overflow: hidden;
+  overflow: visible;
   transform-style: preserve-3d;
+  padding-bottom: 1rem;
+  position: relative;
 }
 
 .MediaItem:hover {
-  transform: translateY(-3px) rotateX(-2deg) rotateY(2deg);
+  transform: translateY(-3px) rotateX(-0deg) rotateY(0deg);
   box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* 图片光泽效果 - 只对包含 img 的 MediaItem 应用 */
+.MediaItem:has(img)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(132, 220, 193, 0.3) 35%,
+    rgba(128, 199, 192, 0.4) 50%,
+    rgba(184, 87, 195, 0.3) 65%,
+    transparent 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 10px;
+  animation: none;
+}
+
+/* 悬停时触发闪烁动画 */
+.MediaItem:has(img):hover::before {
+  animation: flashShine 0.8s ease-out;
+}
+
+/* 闪烁动画 - 快速出现然后消失 */
+@keyframes flashShine {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* 视频样式 */
@@ -101,10 +144,14 @@
 /* 图片样式（继承 Image 类） */
 .MediaItem img {
   width: 100%;
-  height: auto;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
   display: block;
   border-radius: 10px;
   cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 /* ========== 视频容器 - 单独一行 ========== */
@@ -227,7 +274,7 @@
   border-radius: 10px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   cursor: zoom-in;
-  transition: transform 0.3s ease;
+  transition: transform 0.8s ease;
 }
 
 .image-zoom-content:hover {
@@ -250,7 +297,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 1s ease;
   backdrop-filter: blur(10px);
   z-index: 10002;
 }
@@ -258,7 +305,7 @@
 .image-zoom-close:hover {
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.5);
-  transform: rotate(90deg) scale(1.1);
+  transform: rotate(90deg) scale(1.0);
   box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
 }
 
