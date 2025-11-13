@@ -1,0 +1,58 @@
+/* Media Page 专用网格布局 - 三列大图 */
+.media-page .ImageContainer.media-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Media Page 图片尺寸 - 更大的图片 */
+.media-page .MediaItem img {
+  height: 450px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Media Page 闪烁效果高度调整 */
+.media-page .MediaItem:has(img)::before {
+  height: 450px;
+}
+
+/* 响应式设计 - 平板 */
+@media (max-width: 1024px) {
+  .media-page .MediaItem img {
+    height: 400px;
+  }
+
+  .media-page .MediaItem:has(img)::before {
+    height: 400px;
+  }
+}
+
+/* 响应式设计 - 手机 */
+@media (max-width: 768px) {
+  .media-page .ImageContainer.media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .media-page .MediaItem img {
+    height: 350px;
+  }
+
+  .media-page .MediaItem:has(img)::before {
+    height: 350px;
+  }
+}
+
+/* 小屏手机 */
+@media (max-width: 480px) {
+  .media-page .ImageContainer.media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .media-page .MediaItem img {
+    height: 300px;
+  }
+
+  .media-page .MediaItem:has(img)::before {
+    height: 300px;
+  }
+}

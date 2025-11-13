@@ -5,11 +5,15 @@ import { useState } from 'react';
 
 // Import Container CSS for consistent styling
 import '../Container/ImageContainer.css';
+import './Mediapage.css';
+
+// Import AutoScrollText component
+import AutoScrollText from '../Container/AutoScrollText';
 
 // Personal Photos
 import personalPhoto1 from '../assets/About/mmexport1743588375593.jpg';
-import personalPhoto2 from '../assets/About/mmexport1744459376841.jpg';
-import personalPhoto3 from '../assets/Gallery/Character_1.png';
+import personalPhoto2 from '../assets/Media/DSC07526.png';
+import personalPhoto3 from '../assets/Media/Screenshot 2025-11-12 23-14-40 copy.png';
 
 // Videos
 import danceVideo from '../assets/Gallery/Game run.mp4';
@@ -38,8 +42,8 @@ function Mediapage() {
 
       {/* Behind the Scenes Photos - 独立卡片 */}
       <div className="card">
-        <h3 className="section-title">Behind the Scenes</h3>
-        <div className="ImageContainer grid-3">
+        <h3 className="section-title">CS60411 Autumn Image</h3>
+        <div className="ImageContainer media-grid">
           <div className="MediaItem">
             <img
               src={personalPhoto1}
@@ -66,6 +70,29 @@ function Mediapage() {
           </div>
         </div>
       </div>
+      {/* Introduction Section with Auto-Scroll - 独立卡片 */}
+      <div className="card">
+        <h3 className="section-title">About This Project</h3>
+        <AutoScrollText scrollSpeed={15}>
+          <p>
+            My name is Eric, and I work as a Technical Artist in game development.
+            In this project, I'll be presenting both my artistic portraits and lifestyle photos in my own unique way.
+          </p>
+          <p>
+            I chose to wear traditional Chinese clothing because I'm deeply inspired by vintage aesthetics and the fusion of tradition with futuristic electronic elements. I love exploring the visual contrast that happens when the old meets the new — the future meets the past.
+          </p>
+          <p>
+            Beyond making games, I'm also passionate about electronic music production and DJ mixing, which I've integrated into my photos. One of my favorite subjects is my rotary-engine car, the Mazda RX-8, which I personally restored and rebuilt almost to a brand-new condition — it even appears on my computer screen in one of the shots.
+          </p>
+          <p>
+            For the artistic portrait, I used long exposure with rotating light trails to recreate the feeling of people immersed in music. My partner and I were actually dancing during the shoot, which gave the photos their natural rhythm and energy.
+            The 24mm f/1.4 lens allowed me to work creatively even in a small recording room, giving me both flexibility and depth.
+          </p>
+          <p>
+            For the lifestyle photos, I used a Sony DCR-PC120 magnetic tape camcorder, a vintage CCD camera that captures my daily life through a nostalgic lens. I love recording the present as if I were looking at it from the past — it feels like traveling through time.
+          </p>
+        </AutoScrollText>
+      </div>
 
       {/* Video Section - 独立卡片 */}
       <div className="card">
@@ -86,8 +113,8 @@ function Mediapage() {
         <div className="image-zoom-overlay" onClick={closeModal}>
           <div className="image-zoom-container">
             <button className="image-zoom-close" onClick={closeModal}>×</button>
-            <img src={selectedImage.src} alt={selectedImage.title} className="image-zoom-img" />
-            <p className="image-zoom-title">{selectedImage.title}</p>
+            <img src={selectedImage.src} alt={selectedImage.title} className="image-zoom-content" />
+            <p className="image-zoom-caption">{selectedImage.title}</p>
           </div>
         </div>
       )}
