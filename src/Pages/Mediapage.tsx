@@ -11,7 +11,7 @@ import './Mediapage.css';
 import AutoScrollText from '../Container/AutoScrollText';
 
 // Personal Photos
-import personalPhoto1 from '../assets/About/mmexport1743588375593.jpg';
+import personalPhoto1 from '../assets/Media/DSC07646.png';
 import personalPhoto2 from '../assets/Media/DSC07526.png';
 import personalPhoto3 from '../assets/Media/Screenshot 2025-11-12 23-14-40 copy.png';
 
