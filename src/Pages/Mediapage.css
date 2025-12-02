@@ -56,3 +56,116 @@
     height: 300px;
   }
 }
+
+/* YouTube Video Wrapper */
+.media-page .VideoContainer .MediaItem {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.youtube-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: #000;
+}
+
+.youtube-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+/* 响应式视频 - 平板 */
+@media (max-width: 1024px) {
+  .media-page .VideoContainer .MediaItem {
+    max-width: 100%;
+  }
+}
+
+/* 响应式视频 - 手机 */
+@media (max-width: 768px) {
+  .youtube-video-wrapper {
+    border-radius: 8px;
+  }
+
+  .youtube-video-wrapper iframe {
+    border-radius: 8px;
+  }
+}
+
+/* Video Introduction Styles */
+.video-intro {
+  line-height: 1.8;
+}
+
+.video-intro .playback-notice {
+  background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(102, 126, 234, 0.1));
+  border-left: 4px solid var(--neon-pink);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.video-intro .playback-notice strong {
+  color: var(--neon-pink);
+  font-size: 1.1rem;
+}
+
+.video-intro h4 {
+  color: var(--neon-green);
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
+}
+
+.video-intro p {
+  margin-bottom: 1.2rem;
+  color: #e0e0e0;
+  text-align: justify;
+}
+
+.video-intro ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.video-intro ul li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 0.8rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.video-intro ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--neon-blue);
+  font-size: 1.2rem;
+  text-shadow: 0 0 8px rgba(102, 126, 234, 0.5);
+}
+
+.video-intro ul li:hover {
+  color: #fff;
+  transform: translateX(5px);
+  transition: all 0.3s ease;
+}
+
+.video-intro ul li:hover::before {
+  color: var(--neon-pink);
+  text-shadow: 0 0 12px rgba(255, 0, 110, 0.8);
+}

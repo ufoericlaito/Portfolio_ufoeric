@@ -15,8 +15,10 @@ import personalPhoto1 from '../assets/Media/DSC07646.png';
 import personalPhoto2 from '../assets/Media/DSC07526.png';
 import personalPhoto3 from '../assets/Media/Screenshot 2025-11-12 23-14-40 copy.png';
 
-// Videos
-import danceVideo from '../assets/Gallery/Game run.mp4';
+// Behind the Scenes Photos for Video
+import behindScenes1 from '../assets/Media/Video/DSC07771.JPG';
+import behindScenes2 from '../assets/Media/Video/PXL_20251114_144427105.jpg';
+import behindScenes3 from '../assets/Media/Video/WhatsApp 图像2025-11-17于02.30.18_2d7d20f6.jpg';
 
 function Mediapage() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null);
@@ -99,11 +101,86 @@ function Mediapage() {
         <h3 className="section-title">Contemporary Dance Videos</h3>
         <div className="VideoContainer">
           <div className="MediaItem">
-            <video controls>
-              <source src={danceVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <div className="youtube-video-wrapper">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/MIpzlGK81mg?loop=1&playlist=MIpzlGK81mg&autoplay=0&mute=0"
+                title="Contemporary Dance Performance"
+                style={{ border: 0 }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
             <p className="media-caption">Dance Performance</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Video Introduction - 独立卡片 */}
+      <div className="card">
+        <h3 className="section-title">About the Video</h3>
+        <AutoScrollText scrollSpeed={15}>
+          <div className="video-intro">
+            <p className="playback-notice">
+              <strong>⚠️ Playback Notice</strong><br />
+              For the intended experience, please enable Loop Playback in your video player before viewing.
+            </p>
+
+            <h4>🎬 Project Overview – Video Assignment Description</h4>
+            <p>
+              As the producer of this group project, I first proposed the idea of capturing the footage using an old Sony PC-120 tape camcorder to document the behind-the-scenes process, while the main visual content was filmed on a Sony A7M3. The intention was to loop segments of the video so the entire piece feels cyclical—creating a sense of "return" and connecting every chapter of the story. Just like the performer herself, each of us carries unique experiences, and this work brings together her dance technique with the visual concept we built as a team.
+            </p>
+            <p>
+              The original aim was to create a demo reel product for the Irish World Academy of Music and Dance. However, the project gradually shifted into a more personal collaboration after our first interview with the dancer. She was given full creative freedom to choose her music and develop themes that resonated with her. Together, we shaped a dark yet elegant tone, driven by electronic dance music. The ruined abbey and the UL dance studio were selected as the main locations to reinforce this atmosphere.
+            </p>
+            <p>
+              The journey became part of the storytelling. We recorded the full shoot and included a short, candid interview captured during the drive to each location, allowing the process itself to unfold naturally on screen.
+            </p>
+
+            <h4>🎥 Challenges & Lessons Learned</h4>
+            <ul>
+              <li>Working through cold weather and unexpected rain delays</li>
+              <li>Maintaining stable camera movement while tracking the dancer</li>
+              <li>Managing multiple camera systems for layered visual storytelling</li>
+              <li>Directing the performer calmly under shifting on-site conditions</li>
+              <li>Balancing low light using ISO and aperture adjustments</li>
+              <li>Using focal length intentionally to shape mood and energy</li>
+              <li>Color grading each shot to define contrast, warmth, and tone</li>
+              <li>Matching movement, rhythm, and environment through transitions</li>
+              <li>Blending jump cuts and music-driven timing for dynamic pacing</li>
+            </ul>
+          </div>
+        </AutoScrollText>
+      </div>
+
+      {/* Behind the Scenes Photos - 独立卡片 */}
+      <div className="card">
+        <h3 className="section-title">Behind the Scenes</h3>
+        <div className="ImageContainer media-grid">
+          <div className="MediaItem">
+            <img
+              src={behindScenes1}
+              alt="Behind the Scenes 1"
+              className="Image"
+              onClick={() => handleImageClick(behindScenes1, 'Behind the Scenes 1')}
+            />
+          </div>
+          <div className="MediaItem">
+            <img
+              src={behindScenes2}
+              alt="Behind the Scenes 2"
+              className="Image"
+              onClick={() => handleImageClick(behindScenes2, 'Behind the Scenes 2')}
+            />
+          </div>
+          <div className="MediaItem">
+            <img
+              src={behindScenes3}
+              alt="Behind the Scenes 3"
+              className="Image"
+              onClick={() => handleImageClick(behindScenes3, 'Behind the Scenes 3')}
+            />
           </div>
         </div>
       </div>
