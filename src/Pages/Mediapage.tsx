@@ -105,13 +105,14 @@ function Mediapage() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/MIpzlGK81mg?loop=1&playlist=MIpzlGK81mg&autoplay=0&mute=0"
+                src="https://www.youtube.com/embed/MIpzlGK81mg?loop=1&playlist=MIpzlGK81mg&autoplay=0&mute=0&vq=hd1080&hd=1&rel=0&modestbranding=1"
                 title="Contemporary Dance Performance"
                 style={{ border: 0 }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
             </div>
+            <p className="video-quality-note">💡 Tip: Click the settings icon (⚙️) in the video player to adjust quality to 1080p for the best viewing experience</p>
             <p className="media-caption">Dance Performance</p>
           </div>
         </div>

@@ -58,10 +58,22 @@
 }
 
 /* YouTube Video Wrapper */
+.media-page .VideoContainer {
+  transform: none !important;
+  perspective: none !important;
+  transform-style: flat !important;
+  pointer-events: auto;
+}
+
+.media-page .VideoContainer:hover {
+  transform: none !important;
+}
+
 .media-page .VideoContainer .MediaItem {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  pointer-events: auto;
 }
 
 .youtube-video-wrapper {
@@ -69,10 +81,11 @@
   width: 100%;
   padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
   height: 0;
-  overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   background: #000;
+  pointer-events: auto;
+  isolation: isolate;
 }
 
 .youtube-video-wrapper iframe {
@@ -82,6 +95,22 @@
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  pointer-events: auto !important;
+  z-index: 10;
+  touch-action: auto;
+}
+
+/* Video Quality Note */
+.video-quality-note {
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+  border-left: 3px solid var(--neon-blue);
+  border-radius: 6px;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: center;
 }
 
 /* 响应式视频 - 平板 */
@@ -100,6 +129,24 @@
   .youtube-video-wrapper iframe {
     border-radius: 8px;
   }
+}
+
+/* Video Quality Note */
+.video-quality-note {
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(0, 245, 212, 0.1));
+  border-left: 3px solid var(--neon-blue);
+  border-radius: 6px;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.video-quality-note::before {
+  content: '💡';
+  margin-right: 0.5rem;
 }
 
 /* Video Introduction Styles */
