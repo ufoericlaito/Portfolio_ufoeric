@@ -16,7 +16,7 @@ import personalPhoto2 from '../assets/Media/DSC07526.png';
 import personalPhoto3 from '../assets/Media/Screenshot 2025-11-12 23-14-40 copy.png';
 
 // Behind the Scenes Photos for Video
-import behindScenes1 from '../assets/Media/Video/DSC07771.JPG';
+import behindScenes1 from '../assets/Media/Video/DSC07771.jpg';
 import behindScenes2 from '../assets/Media/Video/PXL_20251114_144427105.jpg';
 import behindScenes3 from '../assets/Media/Video/WhatsApp 图像2025-11-17于02.30.18_2d7d20f6.jpg';
 
