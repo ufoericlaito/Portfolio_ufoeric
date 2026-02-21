@@ -4,7 +4,7 @@
   gap: 2rem;
 }
 
-/* Media Page 图片尺寸 - 更大的图�?*/
+/* Media Page 图片尺寸 - 更大的图片 */
 .media-page .MediaItem img {
   height: 450px;
   object-fit: cover;
@@ -16,7 +16,7 @@
   height: 450px;
 }
 
-/* 响应式设�?- 平板 */
+/* 响应式设计 - 平板 */
 @media (max-width: 1024px) {
   .media-page .MediaItem img {
     height: 400px;
@@ -27,7 +27,7 @@
   }
 }
 
-/* 响应式设�?- 手机 */
+/* 响应式设计 - 手机 */
 @media (max-width: 768px) {
   .media-page .ImageContainer.media-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -71,7 +71,7 @@
 
 .media-page .VideoContainer .MediaItem {
   width: 100%;
-  max-width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   pointer-events: auto;
 }
@@ -113,14 +113,14 @@
   text-align: center;
 }
 
-/* 响应式视�?- 平板 */
+/* 响应式视频 - 平板 */
 @media (max-width: 1024px) {
   .media-page .VideoContainer .MediaItem {
     max-width: 100%;
   }
 }
 
-/* 响应式视�?- 手机 */
+/* 响应式视频 - 手机 */
 @media (max-width: 768px) {
   .youtube-video-wrapper {
     border-radius: 8px;
@@ -198,7 +198,7 @@
 }
 
 .video-intro ul li::before {
-  content: '�?;
+  content: '▸';
   position: absolute;
   left: 0;
   color: var(--neon-blue);
@@ -361,7 +361,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 2rem;
   animation: fadeIn 0.3s ease;
   overflow-y: auto;
 }
@@ -380,9 +380,9 @@
   background: linear-gradient(135deg, rgba(20, 20, 30, 0.95), rgba(30, 30, 45, 0.95));
   border: 2px solid var(--neon-blue);
   border-radius: 16px;
-  max-width: 98vw;
+  max-width: 1400px;
   width: 100%;
-  max-height: 95vh;
+  max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4),
               0 0 40px rgba(102, 126, 234, 0.2);
@@ -405,15 +405,13 @@
   top: 1rem;
   right: 1rem;
   float: right;
-  width: 36px;
-  height: 36px;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1.5rem;
-  font-weight: 300;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 0, 110, 0.9);
+  border: 2px solid var(--neon-pink);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 2rem;
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
@@ -421,70 +419,31 @@
   align-items: center;
   justify-content: center;
   line-height: 1;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 0, 110, 0.5);
 }
 
 .project-modal-close:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
-  color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Image Zoom Close Button */
-.image-zoom-close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 40px;
-  height: 40px;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.8rem;
-  font-weight: 300;
-  cursor: pointer;
-  z-index: 1001;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.image-zoom-close:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-  color: #fff;
-  transform: scale(1.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  background: var(--neon-pink);
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 6px 25px rgba(255, 0, 110, 0.8);
 }
 
 .project-modal-body {
-  padding: 1.5rem;
+  padding: 3rem;
   clear: both;
 }
 
 .project-modal-title {
   color: var(--neon-blue);
-  font-size: 2rem;
-  text-align: left;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
   text-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
   font-weight: 700;
 }
 
 .project-description {
-  margin: 1rem 0;
-}
-
-.project-description h3 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin: 2rem 0;
 }
 
 .project-description h3 {
@@ -568,9 +527,9 @@
   }
 
   .project-modal-close {
-    width: 32px;
-    height: 32px;
-    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
   }
 
   .play-button {
@@ -680,10 +639,10 @@
 /* Two-Column Grid Layout */
 .modal-content-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   align-items: start;
-  max-width: 100%;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -693,7 +652,6 @@
   top: 2rem;
   max-height: calc(90vh - 8rem);
   overflow-y: auto;
-  width: 100%;
 }
 
 /* Right Column: Text Content */

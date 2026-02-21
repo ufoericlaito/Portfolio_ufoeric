@@ -166,10 +166,10 @@ function Mediapage() {
 
                 {/* Right Column: Description */}
                 <div className="modal-text-column">
+                  <h2 className="project-modal-title">CS60411 Autumn Image</h2>
                   <div className="project-description">
+                    <h3>About This Project</h3>
                     <AutoScrollText scrollSpeed={15}>
-                      <h2 className="project-modal-title">CS60411 Autumn Image</h2>
-                      <h3>About This Project</h3>
                       <p>
                         My name is Eric, and I work as a Technical Artist in game development.
                         In this project, I'll be presenting both my artistic portraits and lifestyle photos in my own unique way.
@@ -204,97 +204,90 @@ function Mediapage() {
             <button className="project-modal-close" onClick={closeProject}>×</button>
 
             <div className="project-modal-body">
-              {/* Two-Column Layout */}
-              <div className="modal-content-grid">
-                {/* Left Column: Video and Behind the Scenes */}
-                <div className="modal-media-column">
-                  {/* Video Player */}
-                  <div className="VideoContainer">
-                    <div className="MediaItem">
-                      <div className="youtube-video-wrapper">
-                        <iframe
-                          width="100%"
-                          height="100%"
-                          src="https://www.youtube.com/embed/MIpzlGK81mg?loop=1&playlist=MIpzlGK81mg&autoplay=0&mute=0&vq=hd1080&hd=1&rel=0&modestbranding=1"
-                          title="Contemporary Dance Performance"
-                          style={{ border: 0 }}
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                      <p className="video-quality-note">💡 Tip: Click the settings icon (⚙️) in the video player to adjust quality to 1080p for the best viewing experience</p>
-                    </div>
-                  </div>
+              <h2 className="project-modal-title">Contemporary Dance Videos</h2>
 
-                  {/* Behind the Scenes */}
-                  <div className="project-description" style={{ marginTop: '2rem' }}>
-                    <h3>Behind the Scenes</h3>
-                    <div className="ImageContainer media-grid">
-                      <div className="MediaItem">
-                        <img
-                          src={behindScenes1}
-                          alt="Behind the Scenes 1"
-                          className="Image"
-                          onClick={() => handleImageClick(behindScenes1, 'Behind the Scenes 1')}
-                        />
-                      </div>
-                      <div className="MediaItem">
-                        <img
-                          src={behindScenes2}
-                          alt="Behind the Scenes 2"
-                          className="Image"
-                          onClick={() => handleImageClick(behindScenes2, 'Behind the Scenes 2')}
-                        />
-                      </div>
-                      <div className="MediaItem">
-                        <img
-                          src={behindScenes3}
-                          alt="Behind the Scenes 3"
-                          className="Image"
-                          onClick={() => handleImageClick(behindScenes3, 'Behind the Scenes 3')}
-                        />
-                      </div>
-                    </div>
+              {/* Video Player */}
+              <div className="VideoContainer">
+                <div className="MediaItem">
+                  <div className="youtube-video-wrapper">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/MIpzlGK81mg?loop=1&playlist=MIpzlGK81mg&autoplay=0&mute=0&vq=hd1080&hd=1&rel=0&modestbranding=1"
+                      title="Contemporary Dance Performance"
+                      style={{ border: 0 }}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    ></iframe>
                   </div>
+                  <p className="video-quality-note">💡 Tip: Click the settings icon (⚙️) in the video player to adjust quality to 1080p for the best viewing experience</p>
                 </div>
+              </div>
 
-                {/* Right Column: Description */}
-                <div className="modal-text-column">
-                  <h2 className="project-modal-title">Contemporary Dance Videos</h2>
-                  <div className="project-description">
-                    <h3>About the Video</h3>
-                    <AutoScrollText scrollSpeed={15}>
-                      <div className="video-intro">
-                        <p className="playback-notice">
-                          <strong>⚠️ Playback Notice</strong><br />
-                          For the intended experience, please enable Loop Playback in your video player before viewing.
-                        </p>
+              {/* Project Description */}
+              <div className="project-description">
+                <h3>About the Video</h3>
+                <AutoScrollText scrollSpeed={15}>
+                  <div className="video-intro">
+                    <p className="playback-notice">
+                      <strong>⚠️ Playback Notice</strong><br />
+                      For the intended experience, please enable Loop Playback in your video player before viewing.
+                    </p>
 
-                        <h4>🎬 Project Overview – Video Assignment Description</h4>
-                        <p>
-                          As the producer of this group project, I first proposed the idea of capturing the footage using an old Sony PC-120 tape camcorder to document the behind-the-scenes process, while the main visual content was filmed on a Sony A7M3. The intention was to loop segments of the video so the entire piece feels cyclical—creating a sense of "return" and connecting every chapter of the story. Just like the performer herself, each of us carries unique experiences, and this work brings together her dance technique with the visual concept we built as a team.
-                        </p>
-                        <p>
-                          The original aim was to create a demo reel product for the Irish World Academy of Music and Dance. However, the project gradually shifted into a more personal collaboration after our first interview with the dancer. She was given full creative freedom to choose her music and develop themes that resonated with her. Together, we shaped a dark yet elegant tone, driven by electronic dance music. The ruined abbey and the UL dance studio were selected as the main locations to reinforce this atmosphere.
-                        </p>
-                        <p>
-                          The journey became part of the storytelling. We recorded the full shoot and included a short, candid interview captured during the drive to each location, allowing the process itself to unfold naturally on screen.
-                        </p>
+                    <h4>🎬 Project Overview – Video Assignment Description</h4>
+                    <p>
+                      As the producer of this group project, I first proposed the idea of capturing the footage using an old Sony PC-120 tape camcorder to document the behind-the-scenes process, while the main visual content was filmed on a Sony A7M3. The intention was to loop segments of the video so the entire piece feels cyclical—creating a sense of "return" and connecting every chapter of the story. Just like the performer herself, each of us carries unique experiences, and this work brings together her dance technique with the visual concept we built as a team.
+                    </p>
+                    <p>
+                      The original aim was to create a demo reel product for the Irish World Academy of Music and Dance. However, the project gradually shifted into a more personal collaboration after our first interview with the dancer. She was given full creative freedom to choose her music and develop themes that resonated with her. Together, we shaped a dark yet elegant tone, driven by electronic dance music. The ruined abbey and the UL dance studio were selected as the main locations to reinforce this atmosphere.
+                    </p>
+                    <p>
+                      The journey became part of the storytelling. We recorded the full shoot and included a short, candid interview captured during the drive to each location, allowing the process itself to unfold naturally on screen.
+                    </p>
 
-                        <h4>🎥 Challenges & Lessons Learned</h4>
-                        <ul>
-                          <li>Working through cold weather and unexpected rain delays</li>
-                          <li>Maintaining stable camera movement while tracking the dancer</li>
-                          <li>Managing multiple camera systems for layered visual storytelling</li>
-                          <li>Directing the performer calmly under shifting on-site conditions</li>
-                          <li>Balancing low light using ISO and aperture adjustments</li>
-                          <li>Using focal length intentionally to shape mood and energy</li>
-                          <li>Color grading each shot to define contrast, warmth, and tone</li>
-                          <li>Matching movement, rhythm, and environment through transitions</li>
-                          <li>Blending jump cuts and music-driven timing for dynamic pacing</li>
-                        </ul>
-                      </div>
-                    </AutoScrollText>
+                    <h4>🎥 Challenges & Lessons Learned</h4>
+                    <ul>
+                      <li>Working through cold weather and unexpected rain delays</li>
+                      <li>Maintaining stable camera movement while tracking the dancer</li>
+                      <li>Managing multiple camera systems for layered visual storytelling</li>
+                      <li>Directing the performer calmly under shifting on-site conditions</li>
+                      <li>Balancing low light using ISO and aperture adjustments</li>
+                      <li>Using focal length intentionally to shape mood and energy</li>
+                      <li>Color grading each shot to define contrast, warmth, and tone</li>
+                      <li>Matching movement, rhythm, and environment through transitions</li>
+                      <li>Blending jump cuts and music-driven timing for dynamic pacing</li>
+                    </ul>
+                  </div>
+                </AutoScrollText>
+              </div>
+
+              {/* Behind the Scenes */}
+              <div className="project-description">
+                <h3>Behind the Scenes</h3>
+                <div className="ImageContainer media-grid">
+                  <div className="MediaItem">
+                    <img
+                      src={behindScenes1}
+                      alt="Behind the Scenes 1"
+                      className="Image"
+                      onClick={() => handleImageClick(behindScenes1, 'Behind the Scenes 1')}
+                    />
+                  </div>
+                  <div className="MediaItem">
+                    <img
+                      src={behindScenes2}
+                      alt="Behind the Scenes 2"
+                      className="Image"
+                      onClick={() => handleImageClick(behindScenes2, 'Behind the Scenes 2')}
+                    />
+                  </div>
+                  <div className="MediaItem">
+                    <img
+                      src={behindScenes3}
+                      alt="Behind the Scenes 3"
+                      className="Image"
+                      onClick={() => handleImageClick(behindScenes3, 'Behind the Scenes 3')}
+                    />
                   </div>
                 </div>
               </div>
@@ -310,6 +303,17 @@ function Mediapage() {
             <button className="project-modal-close" onClick={closeProject}>×</button>
 
             <div className="project-modal-body">
+              <h2 className="project-modal-title">UN Global Goals Interactive Art Installation</h2>
+              <h3 style={{
+                color: 'var(--neon-blue)',
+                textAlign: 'center',
+                fontSize: '1.5rem',
+                marginBottom: '1rem',
+                textShadow: '0 0 10px var(--neon-blue)'
+              }}>
+                Embodied Earth: A Living Feedback System
+              </h3>
+
               {/* Two-Column Layout */}
               <div className="modal-content-grid">
                 {/* Left Column: Slideshow */}
@@ -321,15 +325,6 @@ function Mediapage() {
                 <div className="modal-text-column">
                   <div className="project-description">
                     <AutoScrollText scrollSpeed={15}>
-                      <h2 className="project-modal-title">UN Global Goals Interactive Art Installation</h2>
-                      <h3 style={{
-                        color: 'var(--neon-blue)',
-                        fontSize: '1.3rem',
-                        marginBottom: '1rem',
-                        textShadow: '0 0 10px rgba(102, 126, 234, 0.6)'
-                      }}>
-                        Embodied Earth: A Living Feedback System
-                      </h3>
                       <div className="video-intro">
                         <p>
                           <strong>Embodied Earth: A Living Feedback System</strong> is an immersive projection-based installation that translates human presence into ecological consequence. Through real-time sensing, participants' movement, density, and interaction with modular objects dynamically influence a simulated ecosystem of flowing water, plant growth, and marine vitality. At the core of the system is an Environmental Health Index (EHI), a continuous computational variable that governs ecological states ranging from equilibrium to collapse. As bodies gather, construct, settle, or accumulate material proxies of infrastructure and waste, the environment degrades; when restorative elements such as trees or renewable "energy" objects are introduced, regeneration becomes possible but asymmetrically slower than damage. The installation visualises climate feedback loops and tipping points through embodied interaction rather than abstract data.

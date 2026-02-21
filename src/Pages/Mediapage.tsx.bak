@@ -1,0 +1,207 @@
+﻿/**
+ * Media Page Component - Project Gallery
+ */
+import { useState } from 'react';
+
+// Import Container CSS for consistent styling
+import '../Container/ImageContainer.css';
+import './Mediapage.css';
+
+// Import AutoScrollText component
+import AutoScrollText from '../Container/AutoScrollText';
+import SlideShow from '../Container/SlideShow';
+
+// Personal Photos
+import personalPhoto1 from '../assets/Media/DSC07646.png';
+import personalPhoto2 from '../assets/Media/DSC07526.png';
+import personalPhoto3 from '../assets/Media/Screenshot 2025-11-12 23-14-40 copy.png';
+
+// Behind the Scenes Photos for Video
+import behindScenes1 from '../assets/Media/Video/DSC07771.jpg';
+import behindScenes2 from '../assets/Media/Video/PXL_20251114_144427105.jpg';
+import behindScenes3 from '../assets/Media/Video/WhatsApp 图像2025-11-17于02.30.18_2d7d20f6.jpg';
+
+// EmbodiedEarth PPT Slides
+import slide1 from '../assets/EmbodiedEarth/幻灯片1.png';
+import slide2 from '../assets/EmbodiedEarth/幻灯片2.png';
+import slide3 from '../assets/EmbodiedEarth/幻灯片3.png';
+import slide4 from '../assets/EmbodiedEarth/幻灯片4.png';
+import slide5 from '../assets/EmbodiedEarth/幻灯片5.png';
+import slide6 from '../assets/EmbodiedEarth/幻灯片6.png';
+import slide7 from '../assets/EmbodiedEarth/幻灯片7.png';
+import slide8 from '../assets/EmbodiedEarth/幻灯片8.png';
+import slide9 from '../assets/EmbodiedEarth/幻灯片9.png';
+import slide10 from '../assets/EmbodiedEarth/幻灯片10.png';
+import slide11 from '../assets/EmbodiedEarth/幻灯片11.png';
+
+type ProjectType = 'autumn' | 'dance' | 'embodied' | null;
+
+function Mediapage() {
+  const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null);
+  const [expandedProject, setExpandedProject] = useState<ProjectType>(null);
+
+  // EmbodiedEarth slides array
+  const embodiedEarthSlides = [
+    slide1, slide2, slide3, slide4, slide5, slide6,
+    slide7, slide8, slide9, slide10, slide11
+  ];
+
+  const handleImageClick = (src: string, title: string) => {
+    setSelectedImage({ src, title });
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'auto';
+  };
+
+  const openProject = (project: ProjectType) => {
+    setExpandedProject(project);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeProject = () => {
+    setExpandedProject(null);
+    document.body.style.overflow = 'auto';
+  };
+
+  return (
+    <div className="media-page">
+      {/* Page Header */}
+      <div className="card">
+        <h2 className="page-title">Creative Projects</h2>
+        <p className="media-intro">
+          Photography, Video Production & Interactive Art
+        </p>
+      </div>
+
+      {/* Project Cards Grid */}
+      <div className="projects-grid">
+        {/* Card 1: Autumn Photography */}
+        <div className="project-card" onClick={() => openProject('autumn')}>
+          <div className="project-card-image">
+            <img src={personalPhoto1} alt="CS60411 Autumn Image" />
+            <div className="project-card-overlay">
+              <h3>CS60411 Autumn Image</h3>
+              <p>Photography Project</p>
+            </div>
+          </div>
+          <div className="project-card-tags">
+            <span className="tag">Photography</span>
+            <span className="tag">Portrait</span>
+          </div>
+        </div>
+
+        {/* Card 2: Dance Video */}
+        <div className="project-card" onClick={() => openProject('dance')}>
+          <div className="project-card-image">
+            <img src={behindScenes1} alt="Contemporary Dance Videos" />
+            <div className="play-button">▶</div>
+            <div className="project-card-overlay">
+              <h3>Contemporary Dance Videos</h3>
+              <p>Video Production</p>
+            </div>
+          </div>
+          <div className="project-card-tags">
+            <span className="tag">Video</span>
+            <span className="tag">Dance</span>
+          </div>
+        </div>
+
+        {/* Card 3: Embodied Earth */}
+        <div className="project-card" onClick={() => openProject('embodied')}>
+          <div className="project-card-image">
+            <img src={slide1} alt="Embodied Earth" />
+            <div className="project-card-overlay">
+              <h3>Embodied Earth</h3>
+              <p>Interactive Art Installation</p>
+            </div>
+          </div>
+          <div className="project-card-tags">
+            <span className="tag">Interactive Art</span>
+            <span className="tag">UN SDGs</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Expanded Project Modal - Autumn Photography */}
+      {expandedProject === 'autumn' && (
+        <div className="project-modal-overlay" onClick={closeProject}>
+          <div className="project-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="project-modal-close" onClick={closeProject}>×</button>
+
+            <div className="project-modal-body">
+              <h2 className="project-modal-title">CS60411 Autumn Image</h2>
+
+              {/* Photo Gallery */}
+              <div className="ImageContainer media-grid">
+                <div className="MediaItem">
+                  <img
+                    src={personalPhoto1}
+                    alt="Autumn Photo 1"
+                    className="Image"
+                    onClick={() => handleImageClick(personalPhoto1, 'Autumn Photo 1')}
+                  />
+                </div>
+                <div className="MediaItem">
+                  <img
+                    src={personalPhoto2}
+                    alt="Autumn Photo 2"
+                    className="Image"
+                    onClick={() => handleImageClick(personalPhoto2, 'Autumn Photo 2')}
+                  />
+                </div>
+                <div className="MediaItem">
+                  <img
+                    src={personalPhoto3}
+                    alt="Autumn Photo 3"
+                    className="Image"
+                    onClick={() => handleImageClick(personalPhoto3, 'Autumn Photo 3')}
+                  />
+                </div>
+              </div>
+
+              {/* Project Description */}
+              <div className="project-description">
+                <h3>About This Project</h3>
+                <AutoScrollText scrollSpeed={15}>
+                  <p>
+                    My name is Eric, and I work as a Technical Artist in game development.
+                    In this project, I'll be presenting both my artistic portraits and lifestyle photos in my own unique way.
+                  </p>
+                  <p>
+                    I chose to wear traditional Chinese clothing because I'm deeply inspired by vintage aesthetics and the fusion of tradition with futuristic electronic elements. I love exploring the visual contrast that happens when the old meets the new — the future meets the past.
+                  </p>
+                  <p>
+                    Beyond making games, I'm also passionate about electronic music production and DJ mixing, which I've integrated into my photos. One of my favorite subjects is my rotary-engine car, the Mazda RX-8, which I personally restored and rebuilt almost to a brand-new condition — it even appears on my computer screen in one of the shots.
+                  </p>
+                  <p>
+                    For the artistic portrait, I used long exposure with rotating light trails to recreate the feeling of people immersed in music. My partner and I were actually dancing during the shoot, which gave the photos their natural rhythm and energy.
+                    The 24mm f/1.4 lens allowed me to work creatively even in a small recording room, giving me both flexibility and depth.
+                  </p>
+                  <p>
+                    For the lifestyle photos, I used a Sony DCR-PC120 magnetic tape camcorder, a vintage CCD camera that captures my daily life through a nostalgic lens. I love recording the present as if I were looking at it from the past — it feels like traveling through time.
+                  </p>
+                </AutoScrollText>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Image Zoom Modal */}
+      {selectedImage && (
+        <div className="image-zoom-overlay" onClick={closeModal}>
+          <div className="image-zoom-container">
+            <button className="image-zoom-close" onClick={closeModal}>×</button>
+            <img src={selectedImage.src} alt={selectedImage.title} className="image-zoom-content" />
+            <p className="image-zoom-caption">{selectedImage.title}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default Mediapage;

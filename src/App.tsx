@@ -67,6 +67,9 @@ function App() {
               <Nav.Link as={Link} to="/Work_Experience">Work Experience</Nav.Link>
             </Nav.Item>
             <Nav.Item>
+              <Nav.Link as={Link} to="/Media">Mediapage</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
               <Nav.Link as={Link} to="/About">About</Nav.Link>
             </Nav.Item>
             <Nav.Item>
