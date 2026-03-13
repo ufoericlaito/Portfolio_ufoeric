@@ -6,8 +6,10 @@ import "./index.css";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
+const basename = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL;
+
 root.render(
-  <BrowserRouter basename="/Portfolio_ufoeric">
+  <BrowserRouter basename={basename}>
     <App />
   </BrowserRouter>
 );

@@ -22,19 +22,47 @@ import behindScenes2 from '../assets/Media/Video/PXL_20251114_144427105.jpg';
 import behindScenes3 from '../assets/Media/Video/WhatsApp 图像2025-11-17于02.30.18_2d7d20f6.jpg';
 
 // EmbodiedEarth PPT Slides
-import slide1 from '../assets/EmbodiedEarth/幻灯片1.png';
-import slide2 from '../assets/EmbodiedEarth/幻灯片2.png';
-import slide3 from '../assets/EmbodiedEarth/幻灯片3.png';
-import slide4 from '../assets/EmbodiedEarth/幻灯片4.png';
-import slide5 from '../assets/EmbodiedEarth/幻灯片5.png';
-import slide6 from '../assets/EmbodiedEarth/幻灯片6.png';
-import slide7 from '../assets/EmbodiedEarth/幻灯片7.png';
-import slide8 from '../assets/EmbodiedEarth/幻灯片8.png';
-import slide9 from '../assets/EmbodiedEarth/幻灯片9.png';
-import slide10 from '../assets/EmbodiedEarth/幻灯片10.png';
-import slide11 from '../assets/EmbodiedEarth/幻灯片11.png';
+import slide1 from '../assets/Media/EmbodiedEarth/幻灯片1.png';
+import slide2 from '../assets/Media/EmbodiedEarth/幻灯片2.png';
+import slide3 from '../assets/Media/EmbodiedEarth/幻灯片3.png';
+import slide4 from '../assets/Media/EmbodiedEarth/幻灯片4.png';
+import slide5 from '../assets/Media/EmbodiedEarth/幻灯片5.png';
+import slide6 from '../assets/Media/EmbodiedEarth/幻灯片6.png';
+import slide7 from '../assets/Media/EmbodiedEarth/幻灯片7.png';
+import slide8 from '../assets/Media/EmbodiedEarth/幻灯片8.png';
+import slide9 from '../assets/Media/EmbodiedEarth/幻灯片9.png';
+import slide10 from '../assets/Media/EmbodiedEarth/幻灯片10.png';
+import slide11 from '../assets/Media/EmbodiedEarth/幻灯片11.png';
 
-type ProjectType = 'autumn' | 'dance' | 'embodied' | null;
+// CS6042 PhoneStand
+import phoneStandCat01 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/cat01.jpeg';
+import phoneStandCat02 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/cat02.jpeg';
+import phoneStandLeaf01 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/Leaf01.jpeg';
+import phoneStandLeaf02 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/Leaf02.jpeg';
+import phoneStandLeaf03 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/Leaf03.jpeg';
+import phoneStandMultiV201 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/multiStand v2.01.jpeg';
+import phoneStandMulti00 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/multiStand00.jpeg';
+import phoneStandMulti01 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/multiStand01.jpeg';
+import phoneStandMulti02 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/multiStand02.jpeg';
+import phoneStandMulti03 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/multiStand03.jpeg';
+import phoneStandMulti04 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/multiStand04.jpeg';
+import phoneStandMulti05 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/multiStand05.jpeg';
+import phoneStandMulti06 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/multiStand06.jpeg';
+import phoneStandMultiV202 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/multiStandv2.02.jpeg';
+import phoneStandMultiV2 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/multiStandv2.jpeg';
+import phoneStandPrint01 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/Print01.jpeg';
+import phoneStandPrint02 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/Print02.jpeg';
+import phoneStandReadyPrint from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/ReadyPrint.jpeg';
+import phoneStandVideo1 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/Print Video 2026-03-13 at 00.43.21.mp4';
+import phoneStandVideo2 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/Print Video 2026-03-13 at 00.44.49.mp4';
+import phoneStandVideo3 from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/Print Video 2026-03-13 at 00.51.04.mp4';
+import phoneStandPdf from '../assets/Media/CS6042-Interactive Media Workshop/PhoneStand/ERIC-phone,stand-0.1.pdf';
+
+// Soundscape Performance
+import soundscapePdf from '../assets/Media/CS6042-Interactive Media Workshop/Soundscape Performance/Rhythmic Improvisation_ERIC(BAOXIAN)_25068776.pdf';
+import soundscapeProcessVideo from '../assets/Media/CS6042-Interactive Media Workshop/Soundscape Performance/Rhythmic Improvisation_Process.mp4';
+
+type ProjectType = 'autumn' | 'dance' | 'embodied' | 'phoneStand' | 'soundscape' | null;
 
 function Mediapage() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null);
@@ -45,6 +73,29 @@ function Mediapage() {
     slide1, slide2, slide3, slide4, slide5, slide6,
     slide7, slide8, slide9, slide10, slide11
   ];
+
+  const phoneStandImages = [
+    phoneStandReadyPrint,
+    phoneStandPrint01,
+    phoneStandPrint02,
+    phoneStandMultiV2,
+    phoneStandMultiV201,
+    phoneStandMultiV202,
+    phoneStandMulti00,
+    phoneStandMulti01,
+    phoneStandMulti02,
+    phoneStandMulti03,
+    phoneStandMulti04,
+    phoneStandMulti05,
+    phoneStandMulti06,
+    phoneStandLeaf01,
+    phoneStandLeaf02,
+    phoneStandLeaf03,
+    phoneStandCat01,
+    phoneStandCat02
+  ];
+
+  const phoneStandVideos = [phoneStandVideo1, phoneStandVideo2, phoneStandVideo3];
 
   const handleImageClick = (src: string, title: string) => {
     setSelectedImage({ src, title });
@@ -121,6 +172,39 @@ function Mediapage() {
           <div className="project-card-tags">
             <span className="tag">Interactive Art</span>
             <span className="tag">UN SDGs</span>
+          </div>
+        </div>
+
+        {/* Card 4: CS6042 PhoneStand */}
+        <div className="project-card" onClick={() => openProject('phoneStand')}>
+          <div className="project-card-image">
+            <img src={phoneStandReadyPrint} alt="CS6042 PhoneStand" />
+            <div className="play-button">▶</div>
+            <div className="project-card-overlay">
+              <h3>CS6042 PhoneStand</h3>
+              <p>Critical Design & Fabrication</p>
+            </div>
+          </div>
+          <div className="project-card-tags">
+            <span className="tag">Laser Cut</span>
+            <span className="tag">Critical Design</span>
+            <span className="tag">Prototype</span>
+          </div>
+        </div>
+
+        {/* Card 5: Soundscape Performance */}
+        <div className="project-card" onClick={() => openProject('soundscape')}>
+          <div className="project-card-image project-card-image-placeholder">
+            <div className="project-placeholder-content">
+              <span className="placeholder-kicker">Performance Video</span>
+              <h3>Rhythmic Improvisation</h3>
+              <p>Soundscape Performance</p>
+            </div>
+          </div>
+          <div className="project-card-tags">
+            <span className="tag">Performance</span>
+            <span className="tag">Soundscape</span>
+            <span className="tag">Video</span>
           </div>
         </div>
       </div>
@@ -336,6 +420,157 @@ function Mediapage() {
                         </p>
                         <p>
                           Grounded in UN Sustainable Development Goals 13 (Climate Action), 14 (Life Below Water), and 15 (Life on Land), the project positions sustainability as a collective spatial decision rather than an individual moral gesture. By combining depth-camera tracking, fluid simulation shaders, and state-based ecological logic, Embodied Earth operates as both interactive artwork and computational research artifact. It demonstrates how embodied systems design can render planetary interdependence perceptible, transforming environmental impact from distant abstraction into immediate experiential awareness.
+                        </p>
+                      </div>
+                    </AutoScrollText>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Expanded Project Modal - CS6042 PhoneStand */}
+      {expandedProject === 'phoneStand' && (
+        <div className="project-modal-overlay" onClick={closeProject}>
+          <div className="project-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="project-modal-close" onClick={closeProject}>×</button>
+
+            <div className="project-modal-body">
+              <div className="modal-content-grid">
+                <div className="modal-media-column">
+                  <div className="project-description">
+                    <h3>Fabrication Process</h3>
+                    <div className="ImageContainer media-grid">
+                      {phoneStandVideos.map((video, index) => (
+                        <div className="MediaItem" key={`phone-video-${index}`}>
+                          <video controls className="Image">
+                            <source src={video} type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="project-description" style={{ marginTop: '2rem' }}>
+                    <h3>Phone Stand Gallery</h3>
+                    <div className="ImageContainer media-grid">
+                      {phoneStandImages.map((image, index) => (
+                        <div className="MediaItem" key={`phone-image-${index}`}>
+                          <img
+                            src={image}
+                            alt={`PhoneStand ${index + 1}`}
+                            className="Image"
+                            onClick={() => handleImageClick(image, `PhoneStand ${index + 1}`)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="project-description" style={{ marginTop: '2rem' }}>
+                    <h3>Vector Design PDF</h3>
+                    <div className="pdf-preview-wrapper">
+                      <object data={phoneStandPdf} type="application/pdf" className="pdf-embed">
+                        <p>
+                          PDF preview is not available in this browser.
+                          <a href={phoneStandPdf} target="_blank" rel="noreferrer" className="project-link-button">Open PDF</a>
+                        </p>
+                      </object>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="modal-text-column">
+                  <div className="project-description">
+                    <AutoScrollText scrollSpeed={15}>
+                      <h2 className="project-modal-title">CS6042 PhoneStand</h2>
+                      <h3>Critical Design - Phone Stand</h3>
+                      <div className="video-intro">
+                        <p>
+                          This project explored how a simple phone stand could become a small critical design object rather than just a convenient accessory. Our original idea was to change the normal one-phone stand into a structure that can hold up to four phones at the same time. By doing this, the object became more functional, but it also encouraged reflection on how many devices people use around them and how often phones compete for attention in shared spaces.
+                        </p>
+                        <p>
+                          We also changed the overall appearance of the stand and added cat-themed decorative elements, which made the design feel more playful and personal. The cat decoration softened the object visually, while the expanded multi-phone structure made it more unusual and noticeable. During testing, the stand successfully attracted attention and encouraged people to talk about its purpose instead of treating it as an ordinary holder. I think the design worked because it combined practicality with a slightly exaggerated form, making everyday phone use more visible, more social, and more open to reflection.
+                        </p>
+                      </div>
+                    </AutoScrollText>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Expanded Project Modal - Soundscape Performance */}
+      {expandedProject === 'soundscape' && (
+        <div className="project-modal-overlay" onClick={closeProject}>
+          <div className="project-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="project-modal-close" onClick={closeProject}>×</button>
+
+            <div className="project-modal-body">
+              <div className="modal-content-grid">
+                <div className="modal-media-column">
+                  <div className="project-description">
+                    <h3>Main Performance Video</h3>
+                    <div className="VideoContainer">
+                      <div className="MediaItem">
+                        <div className="youtube-video-wrapper">
+                          <iframe
+                            width="100%"
+                            height="100%"
+                            src="https://www.youtube.com/embed/0UX_ycXFJ9Q?autoplay=0&rel=0&modestbranding=1"
+                            title="Rhythmic Improvisation Full Version"
+                            style={{ border: 0 }}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                          ></iframe>
+                        </div>
+                        <p className="video-quality-note">Main performance hosted on YouTube: hallucinogenic/置换</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="project-description" style={{ marginTop: '2rem' }}>
+                    <h3>Process Video</h3>
+                    <div className="VideoContainer">
+                      <div className="MediaItem">
+                        <video controls className="soundscape-video-player">
+                          <source src={soundscapeProcessVideo} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="project-description" style={{ marginTop: '2rem' }}>
+                    <h3>Performance PDF</h3>
+                    <div className="pdf-preview-wrapper pdf-preview-tall">
+                      <object data={soundscapePdf} type="application/pdf" className="pdf-embed">
+                        <p>
+                          PDF preview is not available in this browser.
+                          <a href={soundscapePdf} target="_blank" rel="noreferrer" className="project-link-button">Open PDF</a>
+                        </p>
+                      </object>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="modal-text-column">
+                  <div className="project-description">
+                    <AutoScrollText scrollSpeed={15}>
+                      <h2 className="project-modal-title">Rhythmic Improvisation</h2>
+                      <h3>Soundscape Performance — hallucinogenic/置换</h3>
+                      <div className="video-intro">
+                        <h4>Capturing the Ephemeral: Rhythmic Improvisation and the Legacy of Nujabes</h4>
+                        <p>
+                          This soundscape performance is developed around the track <strong>hallucinogenic/置换</strong>. I implemented a set of execution rules akin to a musical algorithm: strictly limiting the editing window to 8 beats (2 bars) and enforcing mandatory track switching. While these constraints may seem rigid, they paradoxically emulate the fluid, organic vitality found in Nujabes' work. I discovered that when my operations were driven by these rules, my brain entered a profound state of flow.
+                        </p>
+                        <p>
+                          Instead of obsessing over perfect parameters, I focused on capturing instantaneous rhythmic intuition and allowing the structure of <strong>hallucinogenic/置换</strong> to guide the pacing of the performance. The result is a process that feels both controlled and improvisational, where restriction becomes a catalyst for expressive movement, timing, and musical responsiveness.
                         </p>
                       </div>
                     </AutoScrollText>
