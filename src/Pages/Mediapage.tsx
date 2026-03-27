@@ -62,7 +62,10 @@ import phoneStandPdf from '../assets/Media/CS6042-Interactive Media Workshop/Pho
 import soundscapePdf from '../assets/Media/CS6042-Interactive Media Workshop/Soundscape Performance/Rhythmic Improvisation_ERIC(BAOXIAN)_25068776.pdf';
 import soundscapeProcessVideo from '../assets/Media/CS6042-Interactive Media Workshop/Soundscape Performance/Rhythmic Improvisation_Process.mp4';
 
-type ProjectType = 'autumn' | 'dance' | 'embodied' | 'phoneStand' | 'soundscape' | null;
+// Reflective Piece
+import reflectivePieceVideo from '../assets/Media/CS6042-Interactive Media Workshop/ReflectivePiece/Reflective Piece lowpixel.mp4';
+
+type ProjectType = 'autumn' | 'dance' | 'embodied' | 'phoneStand' | 'soundscape' | 'reflective' | null;
 
 function Mediapage() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null);
@@ -195,6 +198,7 @@ function Mediapage() {
         {/* Card 5: Soundscape Performance */}
         <div className="project-card" onClick={() => openProject('soundscape')}>
           <div className="project-card-image project-card-image-placeholder">
+            <div className="play-button">▶</div>
             <div className="project-placeholder-content">
               <span className="placeholder-kicker">Performance Video</span>
               <h3>Rhythmic Improvisation</h3>
@@ -205,6 +209,23 @@ function Mediapage() {
             <span className="tag">Performance</span>
             <span className="tag">Soundscape</span>
             <span className="tag">Video</span>
+          </div>
+        </div>
+
+        {/* Card 6: Reflective Piece */}
+        <div className="project-card" onClick={() => openProject('reflective')}>
+          <div className="project-card-image project-card-image-placeholder">
+            <div className="play-button">▶</div>
+            <div className="project-placeholder-content">
+              <span className="placeholder-kicker">Reflection VLOG</span>
+              <h3>Reflective Piece</h3>
+              <p>Course Reflection & Summary</p>
+            </div>
+          </div>
+          <div className="project-card-tags">
+            <span className="tag">CS6042</span>
+            <span className="tag">VLOG</span>
+            <span className="tag">Reflection</span>
           </div>
         </div>
       </div>
@@ -538,7 +559,7 @@ function Mediapage() {
                     <h3>Process Video</h3>
                     <div className="VideoContainer">
                       <div className="MediaItem">
-                        <video controls className="soundscape-video-player">
+                        <video controls className="local-video-player">
                           <source src={soundscapeProcessVideo} type="video/mp4" />
                           Your browser does not support the video tag.
                         </video>
@@ -571,6 +592,54 @@ function Mediapage() {
                         </p>
                         <p>
                           Instead of obsessing over perfect parameters, I focused on capturing instantaneous rhythmic intuition and allowing the structure of <strong>hallucinogenic/置换</strong> to guide the pacing of the performance. The result is a process that feels both controlled and improvisational, where restriction becomes a catalyst for expressive movement, timing, and musical responsiveness.
+                        </p>
+                      </div>
+                    </AutoScrollText>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Expanded Project Modal - Reflective Piece */}
+      {expandedProject === 'reflective' && (
+        <div className="project-modal-overlay" onClick={closeProject}>
+          <div className="project-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="project-modal-close" onClick={closeProject}>×</button>
+
+            <div className="project-modal-body">
+              <div className="modal-content-grid">
+                <div className="modal-media-column">
+                  <div className="project-description">
+                    <h3>Reflective Piece VLOG</h3>
+                    <div className="VideoContainer">
+                      <div className="MediaItem">
+                        <video controls className="local-video-player">
+                          <source src={reflectivePieceVideo} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </div>
+                    <p className="video-quality-note">A reflective VLOG summarising earlier course learning, development, and personal evaluation.</p>
+                  </div>
+                </div>
+
+                <div className="modal-text-column">
+                  <div className="project-description">
+                    <AutoScrollText scrollSpeed={15}>
+                      <h2 className="project-modal-title">Reflective Piece</h2>
+                      <h3>Course Reflection & Summary VLOG</h3>
+                      <div className="video-intro">
+                        <p>
+                          This reflective piece documents my thoughts on the earlier stages of the course and brings together a personal summary of what I learned through previous projects. Presented as a VLOG, it reflects on how my understanding of interactive media, critical design, and creative practice developed over time.
+                        </p>
+                        <p>
+                          Looking back at earlier coursework, I became more aware of the relationship between concept, making, testing, and presentation. Each exercise helped me build not only technical confidence, but also a clearer sense of how to communicate ideas through media outcomes. The process taught me the importance of planning, documenting experimentation, and refining work through reflection.
+                        </p>
+                        <p>
+                          This video acts as both a summary and a personal evaluation of my progress. It captures how previous assignments shaped the way I now approach portfolio building, project development, and critical thinking, while also showing how reflective practice can guide future creative decisions.
                         </p>
                       </div>
                     </AutoScrollText>
