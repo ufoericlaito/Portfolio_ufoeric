@@ -451,6 +451,108 @@ a:hover {
   line-height: 1.8;
 }
 
+/* ========== Home featured entry ========== */
+.home-feature-link {
+  display: block;
+  text-decoration: none;
+  margin-top: 1.5rem;
+}
+
+.home-feature-card {
+  position: relative;
+  text-align: left;
+  padding: 2.5rem 2.25rem;
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(14, 122, 102, 0.92) 0%, rgba(44, 62, 80, 0.88) 55%, rgba(118, 75, 162, 0.85) 100%),
+    rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.home-feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.18), transparent 45%);
+  pointer-events: none;
+}
+
+.home-feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+.home-feature-badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-feature-title {
+  position: relative;
+  margin: 0 0 0.4rem 0;
+  color: #fff;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.home-feature-subtitle {
+  position: relative;
+  margin: 0 0 1rem 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.home-feature-desc {
+  position: relative;
+  margin: 0 0 1.5rem 0;
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.home-feature-cta {
+  position: relative;
+  display: inline-block;
+  padding: 0.7rem 1.35rem;
+  border-radius: 10px;
+  background: #fff;
+  color: #0e7a66;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.home-feature-card:hover .home-feature-cta {
+  background: #f0faf7;
+  color: #0a5c4d;
+}
+
+.home-entry-card {
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.home-entry-title {
+  font-size: 2.5rem;
+}
+}
+
 /* ========== About 椤甸潰鏍峰紡 ========== */
 .about {
   font-size: 1.1rem;
@@ -1054,6 +1156,11 @@ a:hover {
   border-left: 4px solid #3498db;
 }
 
+.demo-card-teal {
+  background: rgba(22, 160, 133, 0.1);
+  border-left: 4px solid #16a085;
+}
+
 .demo-title {
   font-size: 1.8rem;
   margin-bottom: 1rem;
@@ -1072,10 +1179,69 @@ a:hover {
   color: #3498db;
 }
 
+.demo-card-teal .demo-title {
+  color: #0e7a66;
+  font-size: 1.45rem;
+  line-height: 1.35;
+}
+
+.demo-meta {
+  color: #5d6d7e;
+  font-size: 0.95rem;
+  margin: -0.4rem 0 1rem 0;
+}
+
 .demo-description {
   color: #2c3e50;
   line-height: 1.8;
   margin-bottom: 1rem;
+}
+
+.demo-video-embed {
+  margin: 1.25rem 0;
+}
+
+.demo-video-embed .youtube-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  background: #000;
+  overflow: hidden;
+}
+
+.demo-video-embed .youtube-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
+.demo-video-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 1.25rem 0;
+  border-radius: 12px;
+  border: 2px dashed rgba(14, 122, 102, 0.35);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.demo-video-slot-label {
+  color: #7f8c8d;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+#thesis-demo {
+  scroll-margin-top: 100px;
 }
 
 .demo-tech {
@@ -1527,6 +1693,26 @@ a:hover {
 
   .hero-description {
     font-size: 1rem;
+  }
+
+  .home-feature-card {
+    padding: 1.75rem 1.35rem;
+  }
+
+  .home-feature-title {
+    font-size: 1.45rem;
+  }
+
+  .home-feature-subtitle {
+    font-size: 1rem;
+  }
+
+  .home-feature-desc {
+    font-size: 0.95rem;
+  }
+
+  .home-entry-title {
+    font-size: 1.75rem;
   }
 
   .hero-icon {

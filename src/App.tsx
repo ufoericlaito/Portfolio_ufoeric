@@ -94,18 +94,29 @@ function App() {
                 </p>
               </div>
 
+              {/* Featured Thesis Demo */}
+              <Link to="/Game_Demo#thesis-demo" className="home-feature-link">
+                <div className="home-feature-card">
+                  <span className="home-feature-badge">Featured · MSc Thesis Demo</span>
+                  <h2 className="home-feature-title">
+                    Interactive Music &amp; Visual Healing
+                  </h2>
+                  <p className="home-feature-subtitle">
+                    A System for Stress Relief and Creative Agency
+                  </p>
+                  <p className="home-feature-desc">
+                    An embodied audiovisual system that turns body movement into real-time
+                    music and generative fluid visuals—designed for stress relief without
+                    instruments, notation, or fail states.
+                  </p>
+                  <span className="home-feature-cta">View Demo →</span>
+                </div>
+              </Link>
+
               {/* Media Blog Card */}
-              <Link to="/Media" style={{ textDecoration: 'none' }}>
-                <div className="hero" style={{ cursor: 'pointer', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}
-                     onMouseEnter={(e) => {
-                       e.currentTarget.style.transform = 'translateY(-5px)';
-                       e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-                     }}
-                     onMouseLeave={(e) => {
-                       e.currentTarget.style.transform = 'translateY(0)';
-                       e.currentTarget.style.boxShadow = 'none';
-                     }}>
-                  <h2 className="hero-title" style={{ fontSize: '2.5rem' }}>📸 Media Photo & Video</h2>
+              <Link to="/Media" className="home-feature-link">
+                <div className="hero home-entry-card">
+                  <h2 className="hero-title home-entry-title">Media Photo &amp; Video</h2>
                   <p className="hero-description">
                     Professional photos and contemporary dance videos
                   </p>

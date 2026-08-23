@@ -301,6 +301,55 @@
   letter-spacing: 1.2px;
 }
 
+.project-card-featured {
+  grid-column: 1 / -1;
+  border-color: rgba(22, 160, 133, 0.55);
+  box-shadow: 0 8px 28px rgba(14, 122, 102, 0.25);
+}
+
+.project-card-featured:hover {
+  border-color: #16a085;
+  box-shadow: 0 12px 40px rgba(14, 122, 102, 0.4),
+              0 0 30px rgba(22, 160, 133, 0.25);
+}
+
+.project-card-image-thesis {
+  background:
+    radial-gradient(circle at top left, rgba(22, 160, 133, 0.35), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(118, 75, 162, 0.3), transparent 45%),
+    linear-gradient(135deg, rgba(8, 40, 34, 0.96), rgba(24, 28, 42, 0.96));
+}
+
+.project-card-image-thesis .placeholder-kicker {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.media-video-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0.75rem 0 1rem;
+  border-radius: 12px;
+  border: 2px dashed rgba(22, 160, 133, 0.45);
+  background: rgba(10, 20, 24, 0.55);
+}
+
+.media-video-slot-label {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.thesis-meta {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  margin: 0 0 1rem 0;
+}
+
 .project-card:hover .project-card-image img {
   transform: scale(1.1);
 }
@@ -770,8 +819,8 @@
 /* Two-Column Grid Layout */
 .modal-content-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1.45fr) minmax(420px, 1.15fr);
+  gap: 2rem;
   align-items: start;
   max-width: 100%;
   margin: 0 auto;
@@ -781,15 +830,27 @@
 .modal-media-column {
   position: sticky;
   top: 2rem;
-  max-height: calc(95vh - 6rem);
+  max-height: calc(95vh - 4rem);
   overflow-y: auto;
   width: 100%;
 }
 
 /* Right Column: Text Content */
 .modal-text-column {
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
-  max-height: calc(95vh - 6rem);
+  max-height: calc(95vh - 4rem);
+  min-width: 0;
+}
+
+.modal-text-column .project-description {
+  height: 100%;
+}
+
+.project-modal-body .modal-text-column .auto-scroll-text {
+  min-height: 58vh;
+  max-height: calc(95vh - 8rem);
 }
 
 /* Scrollbar for columns */
@@ -824,6 +885,11 @@
   }
 
   .modal-text-column {
+    max-height: none;
+  }
+
+  .project-modal-body .modal-text-column .auto-scroll-text {
+    min-height: 42vh;
     max-height: none;
   }
 
